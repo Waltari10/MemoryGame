@@ -4,13 +4,51 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+
+<html lang="fi">
+<head>
+    <title>muistipeli</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.20/dist/jquery.flip.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+
+
+<body>
+    <article id="game">
+        <header>
+            <div>muistipeli</div>
+        </header>
+        <section id="board">
+            <div id="card1" class="tile">
+            <div class="front">
+                
+                <img src="etu.jpg">
+            </div>
+            <div class="back">
+                <img src="taka.jpg">
+            </div>
+            </div>
+
+            <div id="card2" class="tile">
+                <div class="front">
+                    
+                    <img src="etu.jpg">
+                </div>
+                <div class="back">
+                    <img src="taka.jpg">
+                </div>
+            </div>
+
+            
+            
+        </section>
+    </article>
+
+
+            <script>$("#card1").flip();</script>
+            <script>$("#card2").flip();</script>
+</body>
 </html>

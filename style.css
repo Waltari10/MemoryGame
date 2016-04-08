@@ -1,0 +1,27 @@
+root { 
+    display: block;
+}
+
+#board {
+	padding-top: 10px;
+    width: 570px;
+    height: 450px;
+	background-color: rgb(228, 223, 208);
+}
+
+.tile {
+	float:left;
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #cfcfcf;
+	cursor: pointer;
+}
+
+.tile img {
+	display: block;
+	margin: 0 auto;
+	padding-top: 25px;
+	width: 50px;
+}
