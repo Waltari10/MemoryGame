@@ -10,6 +10,8 @@ function card(id) {
 			onEnd: this.onFlipComplete()
 		});
 
+		console.log("flipped");
+
 		$("#" + this.id + " img").show();
 		
 		this.flipped = true;
@@ -25,7 +27,11 @@ function card(id) {
 		this.flipped = false;
 	};
 
-	this.getBackContent  function () {
-		return 'img src="' + this.backContentImage + '"/>';
+	this.getHTML = function () {
+		return '<div id="' + this.id + '" class=card> <div class="back">' + "<img src='" + this.image + "'>" + '</div> <div class="front"> <img src="etu.jpg">  </div> </div>';
 	};
+
+	this.setImage = function (counter) {
+		this.image = "taka" + counter + ".jpg";
+	}
 }

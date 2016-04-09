@@ -12,6 +12,8 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.20/dist/jquery.flip.min.js"></script>
+    <script src="card.js"></script>
+    <script src="scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 
@@ -22,33 +24,20 @@ and open the template in the editor.
             <div>muistipeli</div>
         </header>
         <section id="board">
-            <div id="card1" class="tile">
+            <div id="card1" class="card">
             <div class="front">
                 
                 <img src="etu.jpg">
             </div>
             <div class="back">
-                <img src="taka.jpg">
+                <img src="taka1.jpg">
             </div>
             </div>
-
-            <div id="card2" class="tile">
-                <div class="front">
-                    
-                    <img src="etu.jpg">
-                </div>
-                <div class="back">
-                    <img src="taka.jpg">
-                </div>
-            </div>
-
-            
-            
         </section>
+        <a href='#' id="startGameButton">New Game</a>
     </article>
 
 
-            <script>$("#card1").flip();</script>
-            <script>$("#card2").flip();</script>
+    <script>$("#card1").flip();</script> 
 </body>
 </html>

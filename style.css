@@ -2,6 +2,11 @@ root {
     display: block;
 }
 
+body article#game {
+	width: 600px;
+	margin: 0 auto;
+}
+
 #board {
 	padding-top: 10px;
     width: 570px;
@@ -9,7 +14,7 @@ root {
 	background-color: rgb(228, 223, 208);
 }
 
-.tile {
+.card {
 	float:left;
 	width: 100px;
 	height: 100px;
@@ -19,7 +24,7 @@ root {
 	cursor: pointer;
 }
 
-.tile img {
+.card img {
 	display: block;
 	margin: 0 auto;
 	padding-top: 25px;
