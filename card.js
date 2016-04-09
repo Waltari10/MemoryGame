@@ -22,11 +22,8 @@ function card(id) {
 		}
 	}
 
-	
-
-
 	this.addOnClick = function() {
-		$("#" + id).click(this.flip);
+		$("#" + id).click(this.flip).addClass('clickable');
 	}
 
 	this.offFlipping = function() {

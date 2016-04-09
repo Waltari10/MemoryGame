@@ -13,6 +13,8 @@ $(document).ready(function() {
 		setTimeout(flipAllCards, 2000);
 		setTimeout(enableAllFlipping, 3000);
 		setTimeout(addGameLogic, 3000);
+
+		setTimeout(areAllCardsMatched, 3000);
     });
 
     function addGameLogic () {
@@ -33,24 +35,37 @@ $(document).ready(function() {
 				lastFlippedCard = $(this);
 			} else {
 				console.log("users second peek. Here is potential money!");
-
-				var temp = $(this).find("figure.front").find("img").attr("src");
-
-				if (lastFlippedCard.find("figure.front").find("img").attr("src") === temp) {
+				if (lastFlippedCard.find("figure.front").find("img").attr("src") === $(this).find("figure.front").find("img").attr("src")) {
 					console.log("its a match! freeze cards");
-					$(this).off('click');
-					$(lastFlippedCard).off('click');
-					lastFlippedCard = null;
+					$(this).off('click').removeClass('clickable');
+					$(lastFlippedCard).off('click').removeClass('clickable');
+					
+					//Check if player won!
+					console.log(areAllCardsMatched());
+
 				} else {
-					$(this).addClass('flipped');
-					$(lastFlippedCard).addClass('flipped');
-					lastFlippedCard = null;
+					var temp1 = $(this);
+					var temp2 = lastFlippedCard;
+					setTimeout(function () {
+						temp1.addClass('flipped');
+						temp2.addClass('flipped');
+					}, 2000);
 				}
+				lastFlippedCard = null;
 			}
 
 		}
 	}
 
+	function areAllCardsMatched() {
+		for (var i = 0; i < 20; i++) {
+			if ($("#card" + i).hasClass('clickable') === true) {
+
+				return false;
+			}
+		}		
+		return true;
+	}
 
 	function flipAllCards(){
 		for (var i = 0; i < 20; i++) {
