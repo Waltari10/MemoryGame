@@ -28,7 +28,7 @@ function card(id) {
 	};
 
 	this.getHTML = function () {
-		return '<div id="' + this.id + '" class=card> <div class="back">' + "<img src='" + this.image + "'>" + '</div> <div class="front"> <img src="etu.jpg">  </div> </div>';
+		return '<div id="' + this.id + '" class="card flipped"> <figure class="front">' + "<img src='etu.jpg'>" + '</figure> <figure class="back">' + "<img src='" + this.image + "'>" +  '</figure> </div>';
 	};
 
 	this.setImage = function (counter) {
