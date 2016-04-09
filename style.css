@@ -28,9 +28,8 @@ body article#game {
 }
 
 img {
-	position:absolute;
-	margin: 0 auto;
 	padding-top: 25px;
+	padding-left: 25px;
 	width: 50px;
 }
 
@@ -62,16 +61,4 @@ figure {
 .flipped {
   transform: rotateY( 180deg );
 
-}
-
-#card {
-	float:left;
-	width: 100px;
-	height: 100px;
-	margin-left: 10px;
-	margin-bottom: 10px;
-	border: 1px solid #cfcfcf;
-	cursor: pointer;
-	transform-style: preserve-3d;
-	transition: transform 1s;s
 }

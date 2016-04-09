@@ -7,10 +7,40 @@ $(document).ready(function() {
     	 $('#board').empty();
          shuffle(numberArray);
          initcards();
+         setTimeout(flipAllCards, 1000);
+         setTimeout(flipAllCards, 2000);
+         setTimeout(enableCards, 3000);
+
     });
 });
 
+function flipAllCards(){
+	console.log("test");
+	for (var i = 0; i < 20; i++) {
+		if ($("#card" + i).hasClass("flipped")) {
+			$("#card" + i).removeClass("flipped");
+		} else {
+			$("#card" + i).addClass("flipped");
+		}
+	}
+}
 
+function enableCards() {
+	console.log("NYTT");
+	for (var i = 0; i < 20; i++) {
+		$("#card" + i).click(flipCard(i));
+	}
+}
+
+function flipCard(i){
+	return function () {
+			if ($("#card" + i).hasClass("flipped")) {
+				$("#card" + i).removeClass("flipped");
+			} else {
+				$("#card" + i).addClass("flipped");
+			}
+	}
+}
 
 function initcards() {
 	var counter = 0,
