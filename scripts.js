@@ -6,7 +6,7 @@ $(document).ready(function() {
 	var lastFlippedCard = null;
 	var revealTime = 4000;
 	var cardAmount = 20;
-	
+
     $('#startGameButton').click(function() {
 
     	disableButton($(this), 5000);
@@ -38,17 +38,17 @@ $(document).ready(function() {
 	}
 
 	function checkFlippings() {
-		if ($(this).hasClass('flipped')) {
-			//console.log("User is reverting his choice.");
+		if (!$(this).hasClass('flipped')) {
+			console.log("User is reverting his choice.");
 			lastFlippedCard = null;
 		} else {
-			//console.log("user is peeking into a card");
+			console.log("user is peeking into a card");
 			if (lastFlippedCard === null) {
 				lastFlippedCard = $(this);
 			} else {
-				//console.log("users second peek. Here is potential money!");
-				if (lastFlippedCard.find("figure.front").find("img").attr("src") === $(this).find("figure.front").find("img").attr("src")) {
-					//console.log("its a match! freeze cards");
+
+				if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
+					console.log("its a match! freeze cards");
 					$(this).off('click').removeClass('clickable');
 					$(lastFlippedCard).off('click').removeClass('clickable');
 					
@@ -59,9 +59,9 @@ $(document).ready(function() {
 					var temp1 = $(this);
 					var temp2 = lastFlippedCard;
 					setTimeout(function () {
-						temp1.addClass('flipped');
-						temp2.addClass('flipped');
-					}, cardAmount00);
+						temp1.removeClass('flipped');
+						temp2.removeClass('flipped');
+					}, 2000);
 				}
 				lastFlippedCard = null;
 			}
