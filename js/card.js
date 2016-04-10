@@ -35,7 +35,7 @@ function card(id) {
 	}
 
 	this.getHTML = function () {
-		return '<div id="' + this.id + '" class="card"> <figure class="front">' + "<img src='etu.jpg'>" + '</figure> <figure class="back">' + "<img src='" + this.image + "'>" +  '</figure> </div>';
+		return '<div id="' + this.id + '" class="card"> <figure class="front">' + "<img src='jpg/etu.jpg'>" + '</figure> <figure class="back">' + "<img src='jpg/" + this.image + "'>" +  '</figure> </div>';
 	};
 
 	this.setImage = function (counter) {

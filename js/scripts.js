@@ -32,17 +32,13 @@ $(document).ready(function() {
     }
 
 	function checkFlippings() {
-
-		console.log(lastFlippedCard);
-
 		if (!$(this).hasClass('flipped')) {
-			//console.log("User is reverting his choice.");
+			console.log("User is reverting his choice.");
 			lastFlippedCard = null;
 		} else {
-			//console.log("user is peeking into a card");
+			console.log("user is peeking into a card");
 			if (lastFlippedCard === null) {
 				lastFlippedCard = $(this);
-				console.log(lastFlippedCard);
 			} else {
 				disableAllFlipping();
 
@@ -54,8 +50,10 @@ $(document).ready(function() {
 					addGameLogic();
 					//Check if player won!
 					console.log(areAllCardsMatched());
+					playAudio("mp3/applause.mp3");
 
 				} else {
+					playAudio("mp3/no.mp3");
 					var temp1 = $(this);
 					var temp2 = lastFlippedCard;
 					setTimeout(function () {
@@ -150,6 +148,16 @@ $(document).ready(function() {
 	        a[i - 1] = a[j];
 	        a[j] = x;
 	    }
+	}
+
+	function playAudio(sAudio) {
+		var audioElement = document.getElementById('audioEngine');
+				
+		if(audioElement !== null) {
+
+			audioElement.src = sAudio;
+			audioElement.play();
+		}	
 	}
 
 });
