@@ -7,15 +7,46 @@ $(document).ready(function() {
 	var revealTime = 4000;
 	var cardAmount = 20;
 	var timeoutFunc = null;
+	var flips = 0;
 
-    $('#startGameButton').click(function() {
-
+    $('#startGameButton1').click(function() {
     	disableButton($(this), 5000);
     	initGame();
-		
     });
 
+    $('#startGameButton2').click(function() {
+    	disableButton($(this), 5000);
+    	initGame();
+    });
+
+    $('#highScoreButton').click(function() {
+    	disableButton($(this), 5000);
+    	
+    });
+
+    $('#saveScoreButton').click(function() {
+    	//localStorage.clear();
+    	var scores = localStorage["scores"];
+    	if (scores != null ) {
+    		var scoreObj = JSON.parse(scores);
+    		scoreObj['scores'].push({"name" : $("#playerName").val(), "score" : $("#flips").text()});
+    		localStorage["scores"] = JSON.stringify(scoreObj)
+    	} else {
+    		var scoreText = "{\"scores\":[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#flips").text() + "}]}";
+    		localStorage["scores"] = scoreText;
+    	}
+
+    	console.log(localStorage["scores"]);
+    });
+
+    function addscores() {
+    	localstorage[high]
+    }
+
     function initGame(){
+    	flips = 0;
+		$("#flips").text(flips);
+		$("#voittoBanneri").hide();
     	$('#board').empty();
     	clearTimeout(timeoutFunc);
 		shuffle(numberArray);
@@ -34,6 +65,10 @@ $(document).ready(function() {
     }
 
 	function checkFlippings() {
+		flips++;
+		$("#flips").text(flips);
+
+
 		if (!$(this).hasClass('flipped')) {
 			console.log("User is reverting his choice.");
 			lastFlippedCard = null;
@@ -58,7 +93,7 @@ $(document).ready(function() {
 					playAudio("mp3/no.mp3");
 					var temp1 = $(this);
 					var temp2 = lastFlippedCard;
-					timeoutFunc = setTimeout(function () { 			//This breaks the game if new game is pressed before this timeout finishes.
+					timeoutFunc = setTimeout(function () {
 						temp1.removeClass('flipped');
 						temp2.removeClass('flipped');
 						enableAllFlipping();
@@ -78,7 +113,8 @@ $(document).ready(function() {
 				return false;
 			}
 		}
-		alert("You won!");
+		console.log("victuaa");
+		$("#voittoBanneri").show();
 		return true;
 	}
 

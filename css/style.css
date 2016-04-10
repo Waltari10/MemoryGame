@@ -9,7 +9,7 @@ body article#game {
 
 #board {
 	padding-top: 10px;
-    width: 570px;
+    width: 600px;
     height: 450px;
 	background-color: rgb(228, 223, 208);
 }
@@ -17,7 +17,7 @@ body article#game {
 
 .card {
 	float:left;
-	width: 100px;
+	width: 106px;
 	height: 100px;
 	margin-left: 10px;
 	margin-bottom: 10px;
@@ -60,4 +60,9 @@ figure {
 .flipped {
   transform: rotateY( 180deg );
 
+}
+
+#voittoBanneri {
+	//display: none;
+	z-index:1000;
 }

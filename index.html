@@ -18,15 +18,22 @@ and open the template in the editor.
 
 
 <body>
-
+    <div id="voittoBanneri" style="position:absolute; left:50%;">
+        <div style="position:relative; left: -50%;">
+            <button style="position:absolute; left:40%; right:40%; top:70%; width:20%;" id="saveScoreButton"> save score </button>
+            <input id="playerName" type="text" placeholder="Type name here" style="position:absolute; left:40%; right:40%; top:65%; width:20%;" id="startGameButton2"></input>
+            <img src="jpg/voittoBanneri.png" style="width: 600px; height: 500px;">
+        </div>
+    </div>
     <article id="game">
         <header>
-            <div>muistipeli</div>
+            <div>muistipeli <div id="flips">0</div> </div> 
         </header>
         <section id="board">
             
         </section>
-        <button id="startGameButton"> new game </button>
+        <button id="startGameButton1"> new game </button>
+        <button id="highScoreButton"> highscores </button>
         <!-- <a href='#' id="startGameButton">New Game</a> <!-- can click multiple times -->
     </article>
     <audio id="audioEngine">
