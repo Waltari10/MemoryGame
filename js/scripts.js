@@ -6,6 +6,7 @@ $(document).ready(function() {
 	var lastFlippedCard = null; //This is made null when it should not be sometimes.
 	var revealTime = 4000;
 	var cardAmount = 20;
+	var timeoutFunc = null;
 
     $('#startGameButton').click(function() {
 
@@ -16,6 +17,7 @@ $(document).ready(function() {
 
     function initGame(){
     	$('#board').empty();
+    	clearTimeout(timeoutFunc);
 		shuffle(numberArray);
 		createCards();
 		setTimeout(flipAllCards, 500);
@@ -56,7 +58,7 @@ $(document).ready(function() {
 					playAudio("mp3/no.mp3");
 					var temp1 = $(this);
 					var temp2 = lastFlippedCard;
-					setTimeout(function () {
+					timeoutFunc = setTimeout(function () { 			//This breaks the game if new game is pressed before this timeout finishes.
 						temp1.removeClass('flipped');
 						temp2.removeClass('flipped');
 						enableAllFlipping();
