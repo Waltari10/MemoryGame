@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 	var cards;
 	var numberArray = Array(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10);
-	var lastFlippedCard = null;
+	var lastFlippedCard = null; //This is made null when it should not be sometimes.
 	var revealTime = 4000;
 	var cardAmount = 20;
 
@@ -31,27 +31,27 @@ $(document).ready(function() {
     	}, time);
     }
 
-    function addGameLogic () {
-    	for (var i = 0; i < cardAmount; i++) {
-    		$("#card" + i).click(checkFlippings);
-    	}
-	}
-
 	function checkFlippings() {
+
+		console.log(lastFlippedCard);
+
 		if (!$(this).hasClass('flipped')) {
-			console.log("User is reverting his choice.");
+			//console.log("User is reverting his choice.");
 			lastFlippedCard = null;
 		} else {
-			console.log("user is peeking into a card");
+			//console.log("user is peeking into a card");
 			if (lastFlippedCard === null) {
 				lastFlippedCard = $(this);
+				console.log(lastFlippedCard);
 			} else {
+				disableAllFlipping();
 
 				if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
 					console.log("its a match! freeze cards");
-					$(this).off('click').removeClass('clickable');
-					$(lastFlippedCard).off('click').removeClass('clickable');
-					
+					$(this).off('click').addClass('solved').removeClass('clickable');
+					$(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
+					enableAllFlipping();
+					addGameLogic();
 					//Check if player won!
 					console.log(areAllCardsMatched());
 
@@ -61,6 +61,8 @@ $(document).ready(function() {
 					setTimeout(function () {
 						temp1.removeClass('flipped');
 						temp2.removeClass('flipped');
+						enableAllFlipping();
+						addGameLogic();
 					}, 2000);
 				}
 				lastFlippedCard = null;
@@ -71,7 +73,7 @@ $(document).ready(function() {
 
 	function areAllCardsMatched() {
 		for (var i = 0; i < cardAmount; i++) {
-			if ($("#card" + i).hasClass('clickable') === true) {
+			if (!$("#card" + i).hasClass('solved')) {
 
 				return false;
 			}
@@ -94,8 +96,27 @@ $(document).ready(function() {
 
 	function enableAllFlipping() {
 		for (var i = 0; i < cardAmount; i++) {
-			cards[i].addOnClick();
+			if (!$("#card" + i).hasClass('solved')) { 
+				findCardById($("#card" + i).attr('id')).addOnClick();
+			}
 		}
+	}
+
+	 function addGameLogic () {
+    	for (var i = 0; i < cardAmount; i++) {
+    		if (!$("#card" + i).hasClass('solved')) {
+    			$("#card" + i).click(checkFlippings);
+    		}
+    	}
+	}
+
+	function findCardById(id) {
+		for (var i = 0; i < cardAmount; i++) {
+			if (cards[i].id === id) {
+				return cards[i];
+			}
+		}
+		return false;
 	}
 
 	function createCards() {

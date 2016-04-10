@@ -27,7 +27,7 @@ function card(id) {
 	}
 
 	this.offFlipping = function() {
-		$("#" + id).off('click');
+		$("#" + id).off('click').removeClass('clickable');
 	}
 
 	this.onFlipping = function() {
