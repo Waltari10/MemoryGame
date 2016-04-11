@@ -12,11 +12,17 @@ $(document).ready(function() {
     var flipRevertDelay = 2000;
     var matchAudio = "mp3/applause.mp3";
     var incorrectMatchAudio = "mp3/no.mp3";
-
-
-    //localStorage.clear();
-
-    displayHighScores(highScoreDisplayAmount);
+    
+    
+    var hasStorage = (function() {
+    try {
+        localStorage.setItem(mod, mod);
+        localStorage.removeItem(mod);
+        return true;
+        } catch (exception) {
+          return false;
+        }
+      }());
 
     $('#startGameButton1').click(function() {
     	disableButton($(this), 5000);
@@ -37,20 +43,22 @@ $(document).ready(function() {
             //alert ("cheater!");
             return;
         }
+        if (hasStorage) {
+            var scores = localStorage["scores"];
+            if (scores != null ) {
+                var scoreObj = JSON.parse(scores);
+                var newScore = { "name" : $("#playerName").val(), "score" : $("#flips").text()}; 
+                scoreObj.push(newScore);
+                scoreObj = sortScores(scoreObj);
+                localStorage["scores"] = JSON.stringify(scoreObj);
+            } else {
+                var scoreText = "[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#flips").text() + "}]";
+                localStorage["scores"] = scoreText;
+            }
+        }
+            $("#voittoBanneri").hide();
+            displayHighScores(highScoreDisplayAmount);
         
-    	var scores = localStorage["scores"];
-    	if (scores != null ) {
-            var scoreObj = JSON.parse(scores);
-            var newScore = { "name" : $("#playerName").val(), "score" : $("#flips").text()}; 
-            scoreObj.push(newScore);
-            scoreObj = sortScores(scoreObj);
-            localStorage["scores"] = JSON.stringify(scoreObj);
-    	} else {
-            var scoreText = "[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#flips").text() + "}]";
-            localStorage["scores"] = scoreText;
-    	}
-	$("#voittoBanneri").hide();
-        displayHighScores(highScoreDisplayAmount);
     });
 
     function sortScores(scoreObj) {
@@ -63,13 +71,15 @@ $(document).ready(function() {
     function displayHighScores(amount) {
         $("#highscores").empty();
         $("#highscores").append("<thead> <tr> <th>#</th> <th>player</th> <th>flips</th></tr></thead>");
-        var scores = localStorage["scores"];
-        if (scores != null) {
-            var scoresObj = JSON.parse(scores);
-            for (var i = 1; i < amount + 1 && i < scoresObj.length + 1; i++) {
-                $("#highscores").append("<tr> <td>" + i + "</td>" + "<td>" + scoresObj[i-1].name + "</td>" + "<td>" + scoresObj[i-1].score + "</td> </tr>");
+        if (hasStorage) {
+            var scores = localStorage["scores"];
+            if (scores != null) {
+                var scoresObj = JSON.parse(scores);
+                for (var i = 1; i < amount + 1 && i < scoresObj.length + 1; i++) {
+                    $("#highscores").append("<tr> <td>" + i + "</td>" + "<td>" + scoresObj[i-1].name + "</td>" + "<td>" + scoresObj[i-1].score + "</td> </tr>");
+                }
             }
-        } //else {
+        }//else {
             //no highscores to display
        // }
     }

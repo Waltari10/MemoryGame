@@ -23,13 +23,13 @@ body article#game {
 	border: 1px solid #cfcfcf;
 	cursor: pointer;
 	transform-style: preserve-3d;
-	transition: transform 1s;s
+	transition: transform 1s;
 }
 
 img {
 	padding-top: 25px;
 	padding-left: 25px;
-	width: 50px;
+	width: 56px;
 }
 
 .container { 
@@ -76,7 +76,6 @@ figure {
     width: 30%;
 }
 
-//----------------------------------------------------------------
 
 .zebra td, .zebra th {
     padding: 10px;
@@ -141,11 +140,10 @@ figure {
 
 .zebra tfoot td:only-child{
     -moz-border-radius: 0 0 6px 6px;
-    -webkit-border-radius: 0 0 6px 6px
-    border-radius: 0 0 6px 6px
+    -webkit-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6p 6px;
 }
 
-//-----------------------------------------------------------------------------
 
 table {
     *border-collapse: collapse; /* IE7 and lower */
