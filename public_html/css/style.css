@@ -24,7 +24,7 @@ body article#game {
     cursor: pointer;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-transition: transform 1s;
+    -webkit-transition: -webkit-transform 1s;
     transition: transform 1s;
 }
 
