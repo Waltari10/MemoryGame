@@ -1,13 +1,22 @@
 $(document).ready(function() {
-	"use strict";
+    "use strict";
 
-	var cards;
-	var numberArray = Array(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10);
-	var lastFlippedCard = null; //This is made null when it should not be sometimes.
-	var revealTime = 4000;
-	var cardAmount = 20;
-	var timeoutFunc = null;
-	var flips = 0;
+    var cards = null;
+    var numberArray = Array(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10);
+    var lastFlippedCard = null; //This is made null when it should not be sometimes.
+    var revealTime = 4000;
+    var cardAmount = 20;
+    var timeoutFunc = null;
+    var flips = 0;
+    var highScoreDisplayAmount = 10;
+    var flipRevertDelay = 2000;
+    var matchAudio = "mp3/applause.mp3";
+    var incorrectMatchAudio = "mp3/no.mp3";
+
+
+    //localStorage.clear();
+
+    displayHighScores(highScoreDisplayAmount);
 
     $('#startGameButton1').click(function() {
     	disableButton($(this), 5000);
@@ -18,26 +27,30 @@ $(document).ready(function() {
     	disableButton($(this), 5000);
     	initGame();
     });
-
-    $('#highScoreButton').click(function() {
-        
-    });
-
+    
     $('#saveScoreButton').click(function() {
-    	localStorage.clear();
+        if ( $("#playerName").val().length < 3) {
+            alert("enter valid name!");
+            return;
+        }
+        if ( $("#flips").text() < cardAmount) {
+            //alert ("cheater!");
+            return;
+        }
+        
     	var scores = localStorage["scores"];
     	if (scores != null ) {
-    		var scoreObj = JSON.parse(scores);
-                var newScore = { "name" : $("#playerName").val(), "score" : $("#flips").text()}; 
-                scoreObj.push(newScore);
-                scoreObj = sortScores(scoreObj);
-    		localStorage["scores"] = JSON.stringify(scoreObj);
+            var scoreObj = JSON.parse(scores);
+            var newScore = { "name" : $("#playerName").val(), "score" : $("#flips").text()}; 
+            scoreObj.push(newScore);
+            scoreObj = sortScores(scoreObj);
+            localStorage["scores"] = JSON.stringify(scoreObj);
     	} else {
-    		var scoreText = "[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#flips").text() + "}]";
-    		localStorage["scores"] = scoreText;
+            var scoreText = "[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#flips").text() + "}]";
+            localStorage["scores"] = scoreText;
     	}
-
-    	console.log(localStorage["scores"]);
+	$("#voittoBanneri").hide();
+        displayHighScores(highScoreDisplayAmount);
     });
 
     function sortScores(scoreObj) {
@@ -46,11 +59,25 @@ $(document).ready(function() {
         });
         return scoreObj;
     };
+    
+    function displayHighScores(amount) {
+        $("#highscores").empty();
+        $("#highscores").append("<thead> <tr> <th>#</th> <th>player</th> <th>flips</th></tr></thead>");
+        var scores = localStorage["scores"];
+        if (scores != null) {
+            var scoresObj = JSON.parse(scores);
+            for (var i = 1; i < amount + 1 && i < scoresObj.length + 1; i++) {
+                $("#highscores").append("<tr> <td>" + i + "</td>" + "<td>" + scoresObj[i-1].name + "</td>" + "<td>" + scoresObj[i-1].score + "</td> </tr>");
+            }
+        } //else {
+            //no highscores to display
+       // }
+    }
 
     function initGame(){
     	flips = 0;
 	$("#flips").text(flips);
-	//$("#voittoBanneri").hide();
+	$("#voittoBanneri").hide();
     	$('#board').empty();
     	clearTimeout(timeoutFunc);
 		shuffle(numberArray);
@@ -91,10 +118,10 @@ $(document).ready(function() {
 					addGameLogic();
 					//Check if player won!
 					console.log(areAllCardsMatched());
-					playAudio("mp3/applause.mp3");
+					playAudio(matchAudio);
 
 				} else {
-					playAudio("mp3/no.mp3");
+					playAudio(incorrectMatchAudio);
 					var temp1 = $(this);
 					var temp2 = lastFlippedCard;
 					timeoutFunc = setTimeout(function () {
@@ -102,7 +129,7 @@ $(document).ready(function() {
 						temp2.removeClass('flipped');
 						enableAllFlipping();
 						addGameLogic();
-					}, 2000);
+					}, flipRevertDelay);
 				}
 				lastFlippedCard = null;
 			}
