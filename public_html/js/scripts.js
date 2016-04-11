@@ -16,13 +16,16 @@ $(document).ready(function() {
     
     var hasStorage = (function() {
     try {
-        localStorage.setItem(mod, mod);
-        localStorage.removeItem(mod);
+        localStorage["test"] = "test";
+        localStorage.removeItem("test");
         return true;
         } catch (exception) {
           return false;
         }
       }());
+     
+    console.log(hasStorage);
+    displayHighScores(highScoreDisplayAmount);
 
     $('#startGameButton1').click(function() {
     	disableButton($(this), 5000);
@@ -56,8 +59,8 @@ $(document).ready(function() {
                 localStorage["scores"] = scoreText;
             }
         }
-            $("#voittoBanneri").hide();
-            displayHighScores(highScoreDisplayAmount);
+        $("#voittoBanneri").hide();
+        displayHighScores(highScoreDisplayAmount);
         
     });
 
