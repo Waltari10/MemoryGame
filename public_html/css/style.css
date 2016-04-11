@@ -8,10 +8,10 @@ body article#game {
 }
 
 #board {
-	padding-top: 10px;
+    padding-top: 10px;
     width: 600px;
     height: 450px;
-	background-color: rgb(228, 223, 208);
+    background-color: rgb(228, 223, 208);
 }
 
 
@@ -65,4 +65,8 @@ figure {
 #voittoBanneri {
 	//display: none;
 	z-index:1000;
+}
+
+.hidden {
+    display: none;
 }

@@ -20,33 +20,37 @@ $(document).ready(function() {
     });
 
     $('#highScoreButton').click(function() {
-    	disableButton($(this), 5000);
-    	
+        
     });
 
     $('#saveScoreButton').click(function() {
-    	//localStorage.clear();
+    	localStorage.clear();
     	var scores = localStorage["scores"];
     	if (scores != null ) {
     		var scoreObj = JSON.parse(scores);
-    		scoreObj['scores'].push({"name" : $("#playerName").val(), "score" : $("#flips").text()});
-    		localStorage["scores"] = JSON.stringify(scoreObj)
+                var newScore = { "name" : $("#playerName").val(), "score" : $("#flips").text()}; 
+                scoreObj.push(newScore);
+                scoreObj = sortScores(scoreObj);
+    		localStorage["scores"] = JSON.stringify(scoreObj);
     	} else {
-    		var scoreText = "{\"scores\":[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#flips").text() + "}]}";
+    		var scoreText = "[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#flips").text() + "}]";
     		localStorage["scores"] = scoreText;
     	}
 
     	console.log(localStorage["scores"]);
     });
 
-    function addscores() {
-    	localstorage[high]
-    }
+    function sortScores(scoreObj) {
+        scoreObj.sort(function (a, b) {
+            return a.score - b.score;
+        });
+        return scoreObj;
+    };
 
     function initGame(){
     	flips = 0;
-		$("#flips").text(flips);
-		$("#voittoBanneri").hide();
+	$("#flips").text(flips);
+	//$("#voittoBanneri").hide();
     	$('#board').empty();
     	clearTimeout(timeoutFunc);
 		shuffle(numberArray);
@@ -55,14 +59,14 @@ $(document).ready(function() {
 		setTimeout(flipAllCards, revealTime);
 		setTimeout(enableAllFlipping, revealTime + 500);
 		setTimeout(addGameLogic, revealTime + 500);
-    }
+    };
 
     function disableButton(btn, time) {
     	btn.prop('disabled', true);
     	setTimeout(function() {
     		btn.prop('disabled', false);
     	}, time);
-    }
+    };
 
 	function checkFlippings() {
 		flips++;
@@ -104,7 +108,7 @@ $(document).ready(function() {
 			}
 
 		}
-	}
+	};
 
 	function areAllCardsMatched() {
 		for (var i = 0; i < cardAmount; i++) {
@@ -116,19 +120,19 @@ $(document).ready(function() {
 		console.log("victuaa");
 		$("#voittoBanneri").show();
 		return true;
-	}
+	};
 
 	function flipAllCards(){
 		for (var i = 0; i < cardAmount; i++) {
 			cards[i].initialFlip();
 		}
-	}
+	};
 
 	function disableAllFlipping() {
 		for (var i = 0; i < cardAmount; i++) {
 			cards[i].offFlipping();
 		}
-	}
+	};
 
 	function enableAllFlipping() {
 		for (var i = 0; i < cardAmount; i++) {
@@ -136,7 +140,7 @@ $(document).ready(function() {
 				findCardById($("#card" + i).attr('id')).addOnClick();
 			}
 		}
-	}
+	};
 
 	 function addGameLogic () {
     	for (var i = 0; i < cardAmount; i++) {
@@ -144,7 +148,7 @@ $(document).ready(function() {
     			$("#card" + i).click(checkFlippings);
     		}
     	}
-	}
+	};
 
 	function findCardById(id) {
 		for (var i = 0; i < cardAmount; i++) {
@@ -153,7 +157,7 @@ $(document).ready(function() {
 			}
 		}
 		return false;
-	}
+	};
 
 	function createCards() {
 		var counter = 0,
@@ -170,13 +174,13 @@ $(document).ready(function() {
 		for (counter = 0; counter < cardAmount; counter++){
 			$('#board').append(cards[counter].getHTML());
 		}
-	}
+	};
 
 	function createCard(counter) {
 		var tempCard = new card("card" + counter);
 		tempCard.setImage(numberArray[counter]);
 		return tempCard;
-	}
+	};
 
 	function shuffle(a) {
 	    var j, x, i;
@@ -186,7 +190,7 @@ $(document).ready(function() {
 	        a[i - 1] = a[j];
 	        a[j] = x;
 	    }
-	}
+	};
 
 	function playAudio(sAudio) {
 		var audioElement = document.getElementById('audioEngine');
@@ -196,7 +200,7 @@ $(document).ready(function() {
 			audioElement.src = sAudio;
 			audioElement.play();
 		}	
-	}
+	};
 
 });
 
