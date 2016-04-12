@@ -1,3 +1,7 @@
+$(window).on('load', function() {
+   $("#cover").hide();
+});
+
 $(document).ready(function() {
     "use strict";
 
