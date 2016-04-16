@@ -74,14 +74,17 @@ figure {
     z-index:1000;
 }
 
+#startGameButton1 {
+    margin: 0 auto;
+    display:block;
+}
+
 .hidden {
     display: none;
 }
 
 #highscores {
-    margin: auto 0;
-    position: absolute; left:35%;
-    width: 30%;
+    width: 100%;
 }
 
 .zebra td, .zebra th {

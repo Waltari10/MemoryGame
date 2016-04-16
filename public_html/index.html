@@ -6,41 +6,45 @@ and open the template in the editor.
 -->
 
 <html lang="fi">
-<head>
-    <title>muistipeli</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="js/card.js"></script>
-    <script src="js/scripts.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-</head>
+    <head>
+        <title>muistipeli</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="js/card.js"></script>
+        <script src="js/highscores.js"></script>
+        <script src="js/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    </head>
 
-<body>
-    <div id="cover"></div>
-
-    <div id="voittoBanneri" style="position:absolute; left:50%;">
-        <div style="position:relative; left: -50%;">
-            <button style="position:absolute; left:40%; right:40%; top:70%; width:20%;" id="saveScoreButton"> save score </button>
-            <input id="playerName" type="text" placeholder="Type name here" style="position:absolute; left:40%; right:40%; top:65%; width:20%;" id="startGameButton2"></input>
-            <img src="jpg/voittoBanneri.png" style="width: 600px; height: 400px;">
+    <body>
+        <div id="cover"></div>
+        <div id="voittoBanneri" style="position:absolute; left:50%;">
+            <div style="position:relative; left: -50%;">
+                <button style="position:absolute; left:40%; right:40%; top:70%; width:20%;" id="saveScoreButton"> save score </button>
+                <input id="playerName" type="text" placeholder="Type name here" style="position:absolute; left:40%; right:40%; top:65%; width:20%;" id="startGameButton2"></input>
+                <img src="jpg/voittoBanneri.png" style="width: 600px; height: 400px;">
+            </div>
         </div>
-    </div>
-    <article id="game">
-        <header>
-            <div>muistipeli <div id="flips">0</div> </div> 
-        </header>
-        <section id="board">
-            
-        </section>
-        <button id="startGameButton1"> new game </button>
-    </article>
-    <table id="highscores" class="zebra">
-           
-    </table>
-    <audio id="audioEngine">
-        <source src="mp3/applause.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-</body>
+        <article id="game">
+            <header>
+                <div>muistipeli 
+                    <div id="flips">0
+                    </div> 
+                </div> 
+            </header>
+            <section id="board">
+
+            </section>
+            <button id="startGameButton1"> new game </button>
+            <table id="highscores" class="zebra">
+
+            </table>
+        </article>
+
+        <audio id="audioEngine">
+            <source src="mp3/applause.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </body>
 </html>
