@@ -12,6 +12,10 @@ root {
     -webkit-transform: translate(0, -500px);
 }
 
+.solved {
+    transform: scale(0.0,0.0);
+}
+
 #voittoBanneri {
     top: -500px;
     z-index:10000;

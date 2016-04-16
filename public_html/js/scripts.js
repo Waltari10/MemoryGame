@@ -13,8 +13,8 @@ $(document).ready(function () {
     var tries = 0;
     var highScoreDisplayAmount = 10;
     var flipRevertDelay = 2000;
-    var matchAudio = "mp3/applause.mp3";
-    var incorrectMatchAudio = "mp3/no.mp3";
+    var matchAudio = "mp3/match.wav";
+    var incorrectMatchAudio = "mp3/missmatch.wav";
     var soundEnabled = true;
     
     var hasStorage = (function () {
@@ -74,7 +74,7 @@ $(document).ready(function () {
             var scores = localStorage["scores"];
             if (scores != null) {
                 var scoreObj = JSON.parse(scores);
-                var newScore = {"name": $("#playerName").val(), "score": $("#score").text()};
+                var newScore = {"name": $("#playerName").val(), "score": $("#tries").text()};
                 scoreObj.push(newScore);
                 scoreObj = sortScores(scoreObj);
                 localStorage["scores"] = JSON.stringify(scoreObj);
@@ -84,14 +84,12 @@ $(document).ready(function () {
             }
         }
         $("#voittoBanneri").removeClass("moveDown");
-        //$("#voittoBanneri").hide();
         displayHighScores(highScoreDisplayAmount, hasStorage);
     });
 
     function initGame() {
         tries = 0;
         $("#tries").text(tries);
-        //$("#voittoBanneri").hide();
         $('#board').empty();
         clearTimeout(timeoutFunc);
         shuffle(cardFileNames);
