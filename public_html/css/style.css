@@ -44,6 +44,29 @@ img {
     perspective: 800px;
 }
 
+#tries {
+    text-align: center;
+    margin: 0 auto;
+    width: 150px;
+}
+
+#scoreText {
+    overflow:auto;
+}
+
+#score {
+    overflow:auto;
+}
+
+#soundSettings {
+    float: right;
+}
+
+#yläPalkki {
+    width: 100%;
+    overflow: auto;
+    background-color: #ccc;
+}
 
 figure {
     margin: 0;
