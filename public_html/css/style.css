@@ -4,6 +4,19 @@ root {
 
 #cover {position: fixed; height: 100%; width: 100%; top:0; left: 0; background: #000; z-index:9999;}
 
+.moveDown {
+    -webkit-transform: translate(0, 500px);
+}
+
+.moveUp {
+    -webkit-transform: translate(0, -500px);
+}
+
+#voittoBanneri {
+    top: -500px;
+    z-index:10000;
+    -webkit-transition: 1s;
+}
 
 body article#game {
     width: 600px;
@@ -96,12 +109,11 @@ figure {
     transform: rotateY(180deg);
 }
 
-#voittoBanneri {
-    display: none;
-    z-index:1000;
-}
+
 
 #startGameButton1 {
+    width: 200px;
+    height: 50px;
     margin: 0 auto;
     display:block;
 }

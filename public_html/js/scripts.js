@@ -59,12 +59,16 @@ $(document).ready(function () {
 
     $('#saveScoreButton').click(function () {
         if ($("#playerName").val().length < 3) {
-            alert("enter valid name!");
+            alert("Nimi on liian lyhyt.");
+            return;
+        }
+        if ($("#playerName").val().length > 12) {
+            alert("Nimi on liian pitkä.");
             return;
         }
         if ($("#tries").text() < cardsOnTable) {
             //alert ("cheater!");
-            return;
+            //return;
         }
         if (hasStorage) {
             var scores = localStorage["scores"];
@@ -75,18 +79,19 @@ $(document).ready(function () {
                 scoreObj = sortScores(scoreObj);
                 localStorage["scores"] = JSON.stringify(scoreObj);
             } else {
-                var scoreText = "[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#score").text() + "}]";
+                var scoreText = "[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#tries").text() + "}]";
                 localStorage["scores"] = scoreText;
             }
         }
-        $("#voittoBanneri").hide();
+        $("#voittoBanneri").removeClass("moveDown");
+        //$("#voittoBanneri").hide();
         displayHighScores(highScoreDisplayAmount, hasStorage);
     });
 
     function initGame() {
         tries = 0;
-        $("#score").text(tries);
-        $("#voittoBanneri").hide();
+        $("#tries").text(tries);
+        //$("#voittoBanneri").hide();
         $('#board').empty();
         clearTimeout(timeoutFunc);
         shuffle(cardFileNames);
@@ -106,7 +111,7 @@ $(document).ready(function () {
 
     function checkFlippings() {
         tries++;
-        $("#score").text(tries);
+        $("#tries").text(tries);
         if (!$(this).hasClass('flipped')) {
             console.log("User is reverting his choice.");
             lastFlippedCard = null;
@@ -148,8 +153,7 @@ $(document).ready(function () {
                 return false;
             }
         }
-        console.log("victuaa");
-        $("#voittoBanneri").show();
+        $("#voittoBanneri").addClass("moveDown");
         return true;
     };
 
@@ -193,20 +197,16 @@ $(document).ready(function () {
         var counter = 0,
                 tempCard1 = null;
         cards = [];
-
-
         for (counter = 0; counter < cardsOnTable - (cardsOnTable / 2); counter++) {
             tempCard1 = createCard(counter, cardFileNames[counter]);
             cards.push(tempCard1);
         }
-
         var pair = 0;
         for (counter = cardsOnTable - (cardsOnTable / 2); counter < cardsOnTable; counter++) {
             tempCard1 = createCard(counter, cardFileNames[pair]);
             pair++;
             cards.push(tempCard1);
         }
-
         shuffle(cards);
         for (counter = 0; counter < cardsOnTable; counter++) {
             $('#board').append(cards[counter].getHTML());
