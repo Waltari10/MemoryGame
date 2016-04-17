@@ -15,7 +15,7 @@ function sortScores(scoreObj) {
 
 function displayHighScores(amount, hasStorage) {
     $("#highscores").empty();
-    $("#highscores").append("<thead> <tr> <th>#</th> <th>player</th> <th>flips</th></tr></thead>");
+    $("#highscores").append("<thead> <tr> <th>#</th> <th>Oppilas</th> <th>Yritykset</th></tr></thead>");
     if (hasStorage) {
         var scores = localStorage["scores"];
         if (scores != null) {

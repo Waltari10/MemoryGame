@@ -10,6 +10,7 @@ $(document).ready(function () {
     var revealTime = 4000;
     var cardsOnTable = 20;
     var timeoutFunc = null;
+    var fadeFlippedCardOutFunc = null;
     var tries = 0;
     var highScoreDisplayAmount = 10;
     var flipRevertDelay = 2000;
@@ -111,19 +112,29 @@ $(document).ready(function () {
         tries++;
         $("#tries").text(tries);
         if (!$(this).hasClass('flipped')) {
-            console.log("User is reverting his choice.");
+           // console.log("User is reverting his choice.");
             lastFlippedCard = null;
         } else {
-            console.log("user is peeking into a card");
+           // console.log("user is peeking into a card");
             if (lastFlippedCard === null) {
                 lastFlippedCard = $(this);
             } else {
                 disableAllFlipping();
 
                 if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
-                    console.log("its a match! freeze cards");
+                   // console.log("its a match! freeze cards");
                     $(this).off('click').addClass('solved').removeClass('clickable');
                     $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
+                    
+                    var temp1 = $(this);
+                    var temp2 = lastFlippedCard;
+                    
+                    fadeFlippedCardOutFunc = setTimeout(function () {
+                        temp1.removeClass('flipped').addClass('scaleZeroRotate180');
+                        temp2.removeClass('flipped').addClass('scaleZeroRotate180');
+                    }, flipRevertDelay + 500);
+                    
+                    
                     enableAllFlipping();
                     addGameLogic();
                     //Check if player won!
@@ -207,7 +218,8 @@ $(document).ready(function () {
         }
         shuffle(cards);
         for (counter = 0; counter < cardsOnTable; counter++) {
-            $('#board').append(cards[counter].getHTML());
+            var tempCardd = cards[counter];
+            $('#board').append(tempCardd.getHTML());
         }
     };
 

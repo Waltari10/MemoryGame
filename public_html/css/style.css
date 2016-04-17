@@ -6,20 +6,43 @@ root {
 
 .moveDown {
     -webkit-transform: translate(0, 500px);
+    -moz-transform: translate(0, 500px);
+    transform: translate(0, 500px);
 }
 
 .moveUp {
     -webkit-transform: translate(0, -500px);
+    -moz-transform: translate(0, -500px);
+    transform: translate(0, -500px);
 }
 
-.solved {
-    transform: scale(0.0,0.0);
+.scaleZeroRotate180 {
+    -webkit-transform: rotateY(180deg) scale(0);
+    -moz-trasform: rotateY(180deg) scale(0);
+    transform: rotateY(180deg) scale(0);
+}
+
+/*
+http://animateyourhtml5.appspot.com/pres/#5
+
+.move {-webkit-animation: anim2 ease-in-out 3s infinite alternate; }
+@-webkit-keyframes anim2
+{
+   from {left: 0px;   -webkit-transform: scale(1.0) rotate(0deg)   }
+   50%  {left: 250px; -webkit-transform: scale(0.8) rotate(10deg)  }
+   to   {left: 500px; -webkit-transform: scale(1.2) rotate(-20deg) }
+} */
+
+.flipped {
+    -webkit-transform: rotateY(180deg) scale(1.1);
+    transform: rotateY(180deg) scale(1.1);
 }
 
 #voittoBanneri {
     top: -500px;
     z-index:10000;
     -webkit-transition: 1s;
+    transition: 1s;
 }
 
 body article#game {
@@ -34,6 +57,17 @@ body article#game {
     background-color: rgb(228, 223, 208);
     -webkit-perspective: 1000px;
     perspective: 1000px;
+    
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* IE/Edge */
+    user-select: none;           /* non-prefixed version, currently
+                                    not supported by any browser */
 }
 
 .card {
@@ -107,13 +141,6 @@ figure {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
-
-.flipped {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-}
-
-
 
 #startGameButton1 {
     width: 200px;
