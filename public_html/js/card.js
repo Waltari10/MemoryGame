@@ -5,19 +5,14 @@ function card(id) {
     this.image = null;
 
     this.flip = function () {
-
-        if ($("#" + id).hasClass("flipped")) {
-            $("#" + id).removeClass("flipped");
-        } else {
-            $("#" + id).addClass("flipped");
-        }
+        $("#" + id).addClass("flipAndZoom"); 
     };
 
     this.initialFlip = function () {
-        if ($("#" + id).hasClass("flipped")) {
-            $("#" + id).removeClass("flipped");
+        if ($("#" + id).hasClass("flip")) {
+            $("#" + id).removeClass("flip");
         } else {
-            $("#" + id).addClass("flipped");
+            $("#" + id).addClass("flip");
         }
     }
 

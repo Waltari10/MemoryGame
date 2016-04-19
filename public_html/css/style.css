@@ -33,9 +33,27 @@ http://animateyourhtml5.appspot.com/pres/#5
    to   {left: 500px; -webkit-transform: scale(1.2) rotate(-20deg) }
 } */
 
-.flipped {
-    -webkit-transform: rotateY(180deg) scale(1.1);
-    transform: rotateY(180deg) scale(1.1);
+.flip {
+    -webkit-transform: rotateY(180deg) scale(1.0);
+    transform: rotateY(180deg) scale(1.0);
+}
+
+
+
+@keyframes flipAndZoomAnim
+{
+   0% {-webkit-transform: rotateY(0deg) scale(1.0)   }
+   15%  {-webkit-transform: rotateY(180deg) scale(1.0)  }
+   30%   {-webkit-transform: rotateY(180deg) scale(1.5) }
+   85%   {-webkit-transform: rotateY(180deg) scale(1.5) }
+   100%   {-webkit-transform: rotateY(180deg) scale(1.0) }
+}
+
+.flipAndZoom {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    animation-name: flipAndZoomAnim;
+    animation-duration: 3s;
 }
 
 #voittoBanneri {
@@ -46,18 +64,47 @@ http://animateyourhtml5.appspot.com/pres/#5
 }
 
 body article#game {
-    width: 600px;
+    width: 650px;
     margin: 0 auto;
 }
 
-#board {
+#boardContainer {
     padding-top: 10px;
+    width: 650px;
+    height: 500px;
+    background-color: rgb(228, 223, 208);
+    position: relative;
+}
+
+#board {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
     width: 600px;
     height: 450px;
-    background-color: rgb(228, 223, 208);
     -webkit-perspective: 1000px;
     perspective: 1000px;
-    
+}
+
+.card {
+    float:left;
+    width: 110px;
+    height: 100px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+    position: relative;
+}
+
+.card img {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60px;
 }
 
 .noselect {
@@ -68,26 +115,6 @@ body article#game {
     -ms-user-select: none;       /* IE/Edge */
     user-select: none;           /* non-prefixed version, currently
                                     not supported by any browser */
-}
-
-.card {
-    float:left;
-    width: 106px;
-    height: 100px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #cfcfcf;
-    cursor: pointer;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform 1s;
-    transition: transform 1s;
-}
-
-img {
-    padding-top: 25px;
-    padding-left: 25px;
-    width: 56px;
 }
 
 .container { 
