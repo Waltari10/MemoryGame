@@ -4,6 +4,7 @@ $(window).on('load', function () {
 
 $(document).ready(function () {
     "use strict";
+    $('#startGameButton1').prop('disabled', false); //Fixes button being stuck on firefox
     var cards = null;
     var cardFileNames = Array("viha", "inho", "kateus", "ahneus", "ilo", "pelko", "kauhu", "rakkaus", "kipu", "häpeä", "ylpeys", "nautinto", "yksinäisyys", "nälkä", "paranoija", "tyytyväisyys", "hämmennys");
     var lastFlippedCard = null;
