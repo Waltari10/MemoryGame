@@ -3,11 +3,6 @@ $(window).on('load', function () {
 });
 
 $(document).ready(function () {
-    
-     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-     var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-     console.log(height);
-    console.log(width);
     "use strict";
     $('#startGameButton1').prop('disabled', false); //Fixes button being stuck on firefox
     var cards = null;
