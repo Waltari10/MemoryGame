@@ -2,8 +2,10 @@
 @media screen 
   and (device-width: 720px) 
   and (device-height: 1280px)  {
-      background-color: red;
       
+      body {
+          background-color: red;
+    }
 }
 
 /* Portrait */
