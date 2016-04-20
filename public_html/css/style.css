@@ -94,11 +94,9 @@ body article#game {
 }
 
 .card img {
+     margin: auto;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+    top: 0; left: 0; bottom: 0; right: 0;
     width: 55px;
 }
 
