@@ -49,6 +49,7 @@ $(document).ready(function () {
     };
     
     $('#startGameButton1').click(function () {
+        console.log("new game pressed");
         disableButton($(this), 5000);
         initGame();
     });
@@ -104,8 +105,10 @@ $(document).ready(function () {
 
     function disableButton(btn, time) {
         btn.prop('disabled', true);
+        console.log("disabled true");
         setTimeout(function () {
             btn.prop('disabled', false);
+            console.log("disabled false");
         }, time);
     };
 
