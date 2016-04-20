@@ -89,6 +89,7 @@ $(document).ready(function () {
     });
 
     function initGame() {
+        lastFlippedCard = null;
         tries = 0;
         $("#tries").text(tries);
         $('#board').empty();
@@ -136,8 +137,8 @@ $(document).ready(function () {
                 var temp1 = $(this);
                 var temp2 = lastFlippedCard;
                 timeoutFunc = setTimeout(function () {
-                    temp1.removeClass('flipAndZoom');
-                    temp2.removeClass('flipAndZoom');
+                    temp1.removeClass('flipAndZoom').addClass('scaleDown');
+                    temp2.removeClass('flipAndZoom').addClass('scaleDown');
                     enableAllFlipping();
                     addGameLogic();
                 }, flipRevertDelay);
