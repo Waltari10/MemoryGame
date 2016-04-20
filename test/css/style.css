@@ -91,11 +91,6 @@ body article#game {
 }
 
 #board {
-    position: absolute;
-    top: 50%; left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
     width: 600px;
     height: 450px;
     -webkit-perspective: 1000px;
@@ -118,17 +113,11 @@ body article#game {
     transform-style: preserve-3d;
     -webkit-transition: -webkit-transform 1s;
     transition: transform 1s;
-    position: relative;
     -webkit-transform:rotateY(0deg scale(0.5));
     transform:rotateY(0deg scale(0.5));
 }
 
 .card img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
     width: 110px;
 }
 
