@@ -1,5 +1,7 @@
 root { 
     display: block;
+    -webkit-transform: translate3d(0,0,0);
+
 }
 
 #cover {position: fixed; height: 100%; width: 100%; top:0; left: 0; background: #000; z-index:9999;}
