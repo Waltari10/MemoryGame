@@ -46,18 +46,8 @@ http://animateyourhtml5.appspot.com/pres/#5
 }
 
 body article#game {
-    width: 600px;
+    width: 650px;
     margin: 0 auto;
-}
-
-#board {
-    padding-top: 10px;
-    width: 600px;
-    height: 450px;
-    background-color: rgb(228, 223, 208);
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    
 }
 
 .noselect {
@@ -70,24 +60,47 @@ body article#game {
                                     not supported by any browser */
 }
 
+#boardContainer {
+    padding-top: 10px;
+    width: 650px;
+    height: 500px;
+    background-color: rgb(228, 223, 208);
+    position: relative;
+}
+
+#board {
+    position: absolute;
+    top: 50%; left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 450px;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+
 .card {
     float:left;
-    width: 106px;
+    width: 110px;
     height: 100px;
     margin-left: 10px;
     margin-bottom: 10px;
-    border: 1px solid #cfcfcf;
     cursor: pointer;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transition: -webkit-transform 1s;
     transition: transform 1s;
+    position: relative;
 }
 
-img {
-    padding-top: 25px;
-    padding-left: 25px;
-    width: 56px;
+.card img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 55px;
 }
 
 .container { 
