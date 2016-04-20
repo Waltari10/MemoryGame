@@ -5,14 +5,19 @@ function card(id) {
     this.image = null;
 
     this.flip = function () {
-        $("#" + id).removeClass('scaleDown').addClass("flipAndZoom"); 
+
+        if ($("#" + id).hasClass("flipped")) {
+            $("#" + id).removeClass("flipped");
+        } else {
+            $("#" + id).addClass("flipped");
+        }
     };
 
     this.initialFlip = function () {
-        if ($("#" + id).hasClass("flip")) {
-            $("#" + id).removeClass("flip").addClass('scaleDown');
+        if ($("#" + id).hasClass("flipped")) {
+            $("#" + id).removeClass("flipped");
         } else {
-            $("#" + id).removeClass("scaleDown").addClass("flip");
+            $("#" + id).addClass("flipped");
         }
     }
 
@@ -29,7 +34,7 @@ function card(id) {
     }
 
     this.getHTML = function () {
-        return '<div id="' + this.id + '" class="card scaleDown"> <figure class="front">' + "<img src='jpg/etu.jpg'>" + '</figure> <figure class="back">' + "<img src='jpg/" + this.image + "'>" + '</figure> </div>';
+        return '<div id="' + this.id + '" class="card"> <figure class="front">' + "<img src='jpg/etu.jpg'>" + '</figure> <figure class="back">' + "<img src='jpg/" + this.image + "'>" + '</figure> </div>';
     };
 
     this.setImage = function (name) {

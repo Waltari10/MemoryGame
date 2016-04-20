@@ -17,147 +17,47 @@ root {
 }
 
 .scaleZeroRotate180 {
-    -webkit-transform: rotateY(180deg) scale(0.5);
-    -moz-transform: rotateY(180deg) scale(0.5);
-    -o-transform: rotateY(180deg) scale(0.5);
-    transform: rotateY(180deg) scale(0.5);
-    -webkit-animation-name: flipAndZoomOutAnim;
-    -moz-animation-name: flipAndZoomOutAnim;
-    -o-animation_name: flipAndZoomOutAnim;
-    animation-name: flipAndZoomOutAnim;
-    -webkit-animation-duration: 1s;
-    -moz-animation-duration: 1s;
-    -o-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: forwards;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+    -webkit-transform: rotateY(180deg) scale(0);
+    -moz-trasform: rotateY(180deg) scale(0);
+    transform: rotateY(180deg) scale(0);
 }
 
 /*
 http://animateyourhtml5.appspot.com/pres/#5
-´*/
 
-.flip {
-    -webkit-transform: rotateY(180deg) scale(0.5);
-    -moz-transform: rotateY(180deg) scale(0.5);
-    -o-transform: rotateY(180deg) scale(0.5);
-    transform: rotateY(180deg) scale(0.5);
-}
-
-@-webkit-keyframes flipAndZoomOutAnim
+.move {-webkit-animation: anim2 ease-in-out 3s infinite alternate; }
+@-webkit-keyframes anim2
 {
-   0% { -webkit-transform: rotateY(180deg) scale(0.5); }
-   100%   { -webkit-transform: rotateY(180deg) scale(0); }
-}
+   from {left: 0px;   -webkit-transform: scale(1.0) rotate(0deg)   }
+   50%  {left: 250px; -webkit-transform: scale(0.8) rotate(10deg)  }
+   to   {left: 500px; -webkit-transform: scale(1.2) rotate(-20deg) }
+} */
 
-@keyframes flipAndZoomOutAnim
-{
-   0% { transform: rotateY(180deg) scale(0.5); }
-   100%   { transform: rotateY(180deg) scale(0); }
-}
-
-@-webkit-keyframes flipAndZoomAnim
-{
-   0%   { -webkit-transform: rotateY(0deg) scale(0.5) }
-   20%  { -webkit-transform: rotateY(180deg) scale(0.5) }
-   40%  { -webkit-transform: rotateY(180deg) scale(1.0) }
-   80%  { -webkit-transform: rotateY(180deg) scale(1.0) }
-   100% { -webkit-transform: rotateY(180deg) scale(0.5) }
-}
-
-@keyframes flipAndZoomAnim
-{
-   0%   { transform: rotateY(0deg) scale(0.5) }
-   20%  { transform: rotateY(180deg) scale(0.5) }
-   40%  { transform: rotateY(180deg) scale(1.0) }
-   80%  { transform: rotateY(180deg) scale(1.0) }
-   100% { transform: rotateY(180deg) scale(0.5) }
-}
-
-.flipAndZoom {
-    z-index: 5;
-    -webkit-transform: rotateY(180deg) scale(0.5);
-    -moz-transform: rotateY(180deg) scale(0.5);
-    -o-transform: rotateY(180deg) scale(0.5);
-    transform: rotateY(180deg) scale(0.5);
-    -webkit-animation-name: flipAndZoomAnim;
-    -moz-animation-name: flipAndZoomAnim;
-    -o-animation-name: flipAndZoomAnim;
-    animation-name: flipAndZoomAnim;
-    -webkit-animation-duration: 2s;
-    -moz-animation-duration: 2s;
-    -o-animation-duration: 2s;
-    animation-duration: 2s;
+.flipped {
+    -webkit-transform: rotateY(180deg) scale(1.1);
+    transform: rotateY(180deg) scale(1.1);
 }
 
 #voittoBanneri {
     top: -500px;
-    z-index: 10000;
+    z-index:10000;
     -webkit-transition: 1s;
-    -moz-transition: 1s;
-    -o-transition: 1s;
     transition: 1s;
 }
 
 body article#game {
-    width: 650px;
+    width: 600px;
     margin: 0 auto;
 }
 
-#boardContainer {
-    padding-top: 10px;
-    width: 650px;
-    height: 500px;
-    background-color: rgb(228, 223, 208);
-    position: relative;
-}
-
 #board {
-    position: absolute;
-    top: 50%; left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+    padding-top: 10px;
     width: 600px;
     height: 450px;
+    background-color: rgb(228, 223, 208);
     -webkit-perspective: 1000px;
     perspective: 1000px;
-}
-
-.scaleDown{
-    -webkit-transform: rotateY(0deg) scale(0.5);
-    -moz-transform: rotateY(0deg) scale(0.5);
-    -o-transform: rotateY(0deg) scale(0.5);
-    transform: rotateY(0deg) scale(0.5);
-}
-
-.card {
-    float:left;
-    width: 110px;
-    height: 100px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform 1s;
-    transition: transform 1s;
-    position: relative;
-    -webkit-transform:rotateY(0deg scale(0.5));
-    transform:rotateY(0deg scale(0.5));
-}
-
-.card img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    width: 110px;
+    
 }
 
 .noselect {
@@ -168,6 +68,26 @@ body article#game {
     -ms-user-select: none;       /* IE/Edge */
     user-select: none;           /* non-prefixed version, currently
                                     not supported by any browser */
+}
+
+.card {
+    float:left;
+    width: 106px;
+    height: 100px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cfcfcf;
+    cursor: pointer;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+}
+
+img {
+    padding-top: 25px;
+    padding-left: 25px;
+    width: 56px;
 }
 
 .container { 
@@ -209,8 +129,8 @@ figure {
     position: absolute;
     width: 100%;
     height: 100%;
-    //-webkit-backface-visibility: hidden;
-    //backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .front {
@@ -219,8 +139,6 @@ figure {
 
 .back {
     -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
@@ -303,7 +221,7 @@ figure {
 .zebra tfoot td:only-child{
     -moz-border-radius: 0 0 6px 6px;
     -webkit-border-radius: 0 0 6px 6px;
-    border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6p 6px;
 }
 
 

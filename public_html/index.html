@@ -29,19 +29,17 @@ and open the template in the editor.
         <article id="game">
             <header>
                 <div id="yläPalkki">
-                    <button id="soundSettings">
+                    <div id="soundSettings">
                         äänet: <b>päällä</b> / pois
-                    </button>
+                    </div>
                     <div id="tries">
                         0
                     </div> 
                 </div> 
             </header>
-            <div id="boardContainer">
-                <div id="board" class="noselect">
+            <section id="board" class="noselect">
 
-                </div>
-            </div>
+            </section>
             <button id="startGameButton1"> Uusi peli </button>
             <table id="highscores" class="zebra">
 
@@ -49,6 +47,7 @@ and open the template in the editor.
         </article>
 
         <audio id="audioEngine">
+            <source src="mp3/applause.mp3" type="audio/mpeg">
             Selaimesi ei tue ääniä.
         </audio>
     </body>

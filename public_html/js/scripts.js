@@ -14,7 +14,7 @@ $(document).ready(function () {
     var fadeFlippedCardOutFunc = null;
     var tries = 0;
     var highScoreDisplayAmount = 10;
-    var flipRevertDelay = 2500;
+    var flipRevertDelay = 2000;
     var matchAudio = "mp3/match.wav";
     var incorrectMatchAudio = "mp3/missmatch.wav";
     var soundEnabled = true;
@@ -32,6 +32,7 @@ $(document).ready(function () {
     displayHighScores(highScoreDisplayAmount, hasStorage);
     
     $('#soundSettings').click(function () {
+        console.log("asdf");
        disableButton($(this), 100);
        toggleSound();
     });
@@ -49,7 +50,6 @@ $(document).ready(function () {
     };
     
     $('#startGameButton1').click(function () {
-        console.log("new game pressed");
         disableButton($(this), 5000);
         initGame();
     });
@@ -90,7 +90,6 @@ $(document).ready(function () {
     });
 
     function initGame() {
-        lastFlippedCard = null;
         tries = 0;
         $("#tries").text(tries);
         $('#board').empty();
@@ -105,50 +104,57 @@ $(document).ready(function () {
 
     function disableButton(btn, time) {
         btn.prop('disabled', true);
-        console.log("disabled true");
         setTimeout(function () {
             btn.prop('disabled', false);
-            console.log("disabled false");
         }, time);
     };
 
     function checkFlippings() {
-        if (lastFlippedCard === null) {
-            lastFlippedCard = $(this);
+        tries++;
+        $("#tries").text(tries);
+        if (!$(this).hasClass('flipped')) {
+           // console.log("User is reverting his choice.");
+            lastFlippedCard = null;
         } else {
-            if (lastFlippedCard.attr("id") === $(this).attr("id")) {
-                return;
-            }
-            tries++;
-            $("#tries").text(tries);
-            disableAllFlipping();
-            if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
-                $(this).off('click').addClass('solved').removeClass('clickable');
-                $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
-                var temp1 = $(this);
-                var temp2 = lastFlippedCard;
-                fadeFlippedCardOutFunc = setTimeout(function () {
-                    temp1.removeClass('flipAndZoom').addClass('scaleZeroRotate180');
-                    temp2.removeClass('flipAndZoom').addClass('scaleZeroRotate180');
-                }, flipRevertDelay + 500);
-                enableAllFlipping();
-                addGameLogic();
-                console.log(areAllCardsMatched());
-                playAudio(matchAudio);
+           // console.log("user is peeking into a card");
+            if (lastFlippedCard === null) {
+                lastFlippedCard = $(this);
             } else {
-                playAudio(incorrectMatchAudio);
-                var temp1 = $(this);
-                var temp2 = lastFlippedCard;
-                timeoutFunc = setTimeout(function () {
-                    temp1.removeClass('flipAndZoom').addClass('scaleDown');
-                    temp2.removeClass('flipAndZoom').addClass('scaleDown');
+                disableAllFlipping();
+
+                if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
+                   // console.log("its a match! freeze cards");
+                    $(this).off('click').addClass('solved').removeClass('clickable');
+                    $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
+                    
+                    var temp1 = $(this);
+                    var temp2 = lastFlippedCard;
+                    
+                    fadeFlippedCardOutFunc = setTimeout(function () {
+                        temp1.removeClass('flipped').addClass('scaleZeroRotate180');
+                        temp2.removeClass('flipped').addClass('scaleZeroRotate180');
+                    }, flipRevertDelay + 500);
+                    
+                    
                     enableAllFlipping();
                     addGameLogic();
-                }, flipRevertDelay);
+                    //Check if player won!
+                    console.log(areAllCardsMatched());
+                    playAudio(matchAudio);
+                } else {
+                    playAudio(incorrectMatchAudio);
+                    var temp1 = $(this);
+                    var temp2 = lastFlippedCard;
+                    timeoutFunc = setTimeout(function () {
+                        temp1.removeClass('flipped');
+                        temp2.removeClass('flipped');
+                        enableAllFlipping();
+                        addGameLogic();
+                    }, flipRevertDelay);
+                }
+                lastFlippedCard = null;
             }
-            lastFlippedCard = null;
         }
-        
     };
 
     function areAllCardsMatched() {
