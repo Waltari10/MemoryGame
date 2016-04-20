@@ -111,14 +111,9 @@ body article#game {
     width: 650px;
     height: 500px;
     background-color: rgb(228, 223, 208);
-    position: relative;
 }
 
 #board {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -225px 0 0 -300px;
     width: 600px;
     height: 450px;
     -webkit-perspective: 1000px;
