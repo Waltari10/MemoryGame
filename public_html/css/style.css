@@ -7,7 +7,6 @@ root {
 .moveDown {
     -webkit-transform: translate(0, 500px);
     -moz-transform: translate(0, 500px);
-    -o-transform: transltae(0, 500px);
     transform: translate(0, 500px);
 }
 
@@ -46,7 +45,6 @@ http://animateyourhtml5.appspot.com/pres/#5
     -o-transform: rotateY(180deg) scale(0.5);
     transform: rotateY(180deg) scale(0.5);
 }
-
 
 @-webkit-keyframes flipAndZoomOutAnim
 {
@@ -161,7 +159,7 @@ body article#game {
 }
 
 .scaleDown{
-    -werbkit-transform: rotateY(0deg) scale(0.5);
+    -webkit-transform: rotateY(0deg) scale(0.5);
     -moz-transform: rotateY(0deg) scale(0.5);
     -o-transform: rotateY(0deg) scale(0.5);
     transform: rotateY(0deg) scale(0.5);
