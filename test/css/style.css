@@ -6,43 +6,27 @@ root {
 
 .moveDown {
     -webkit-transform: translate(0, 500px);
-    -moz-transform: translate(0, 500px);
     transform: translate(0, 500px);
 }
 
 .moveUp {
     -webkit-transform: translate(0, -500px);
-    -moz-transform: translate(0, -500px);
     transform: translate(0, -500px);
 }
 
 .scaleZeroRotate180 {
     -webkit-transform: rotateY(180deg) scale(0.5);
-    -moz-transform: rotateY(180deg) scale(0.5);
-    -o-transform: rotateY(180deg) scale(0.5);
     transform: rotateY(180deg) scale(0.5);
     -webkit-animation-name: flipAndZoomOutAnim;
-    -moz-animation-name: flipAndZoomOutAnim;
-    -o-animation_name: flipAndZoomOutAnim;
     animation-name: flipAndZoomOutAnim;
     -webkit-animation-duration: 1s;
-    -moz-animation-duration: 1s;
-    -o-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: forwards;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
 
-/*
-http://animateyourhtml5.appspot.com/pres/#5
-´*/
-
 .flip {
     -webkit-transform: rotateY(180deg) scale(0.5);
-    -moz-transform: rotateY(180deg) scale(0.5);
-    -o-transform: rotateY(180deg) scale(0.5);
     transform: rotateY(180deg) scale(0.5);
 }
 
@@ -78,17 +62,9 @@ http://animateyourhtml5.appspot.com/pres/#5
 
 .flipAndZoom {
     z-index: 5;
-    -webkit-transform: rotateY(180deg) scale(0.5);
-    -moz-transform: rotateY(180deg) scale(0.5);
-    -o-transform: rotateY(180deg) scale(0.5);
-    transform: rotateY(180deg) scale(0.5);
     -webkit-animation-name: flipAndZoomAnim;
-    -moz-animation-name: flipAndZoomAnim;
-    -o-animation-name: flipAndZoomAnim;
     animation-name: flipAndZoomAnim;
     -webkit-animation-duration: 2s;
-    -moz-animation-duration: 2s;
-    -o-animation-duration: 2s;
     animation-duration: 2s;
 }
 
@@ -128,8 +104,6 @@ body article#game {
 
 .scaleDown{
     -webkit-transform: rotateY(0deg) scale(0.5);
-    -moz-transform: rotateY(0deg) scale(0.5);
-    -o-transform: rotateY(0deg) scale(0.5);
     transform: rotateY(0deg) scale(0.5);
 }
 
@@ -154,8 +128,6 @@ body article#game {
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     width: 110px;
 }
@@ -213,14 +185,8 @@ figure {
     backface-visibility: hidden;
 }
 
-.front {
-
-}
-
 .back {
     -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
