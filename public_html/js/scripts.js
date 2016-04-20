@@ -14,7 +14,7 @@ $(document).ready(function () {
     var fadeFlippedCardOutFunc = null;
     var tries = 0;
     var highScoreDisplayAmount = 10;
-    var flipRevertDelay = 3500;
+    var flipRevertDelay = 2500;
     var matchAudio = "mp3/match.wav";
     var incorrectMatchAudio = "mp3/missmatch.wav";
     var soundEnabled = true;
