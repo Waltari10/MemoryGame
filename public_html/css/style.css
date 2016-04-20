@@ -149,6 +149,8 @@ body article#game {
     -o-transition: -webkit-transform 1s;
     transition: transform 1s;
     position: relative;
+    -webkit-transform:rotateY(0deg scale(0.5));
+    transform:rotateY(0deg scale(0.5));
 }
 
 .card img {
@@ -212,8 +214,6 @@ figure {
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
