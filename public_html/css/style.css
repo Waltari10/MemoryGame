@@ -48,21 +48,8 @@ http://animateyourhtml5.appspot.com/pres/#5
 
 @-webkit-keyframes flipAndZoomOutAnim
 {
-   0% {transform: rotateY(180deg) scale(0.5);   }
-   100%   {transform: rotateY(180deg) scale(0); }
-}
-
-@-moz-keyframes flipAndZoomOutAnim
-{
-   0% {transform: rotateY(180deg) scale(0.5);   }
-   100%   {transform: rotateY(180deg) scale(0); }
-}
-
-@-o-keyframes flipAndZoomOutAnim
-{
-   0% {transform: rotateY(180deg) scale(0.5);   }
-   100%   {transform: rotateY(180deg) scale(0); }
-}
+   0% { -webkit-transform: rotateY(180deg) scale(0.5); }
+   100%   { -webkit-transform: rotateY(180deg) scale(0); }
 
 @keyframes flipAndZoomOutAnim
 {
@@ -72,41 +59,20 @@ http://animateyourhtml5.appspot.com/pres/#5
 
 @-webkit-keyframes flipAndZoomAnim
 {
-   0%   {transform: rotateY(0deg) scale(0.5)   }
-   20%  {transform: rotateY(180deg) scale(0.5)  }
-   40%  {transform: rotateY(180deg) scale(1.0) }
-   80%  {transform: rotateY(180deg) scale(1.0) }
-   100% {transform: rotateY(180deg) scale(0.5) }
-}
-
-@-moz-keyframes flipAndZoomAnim
-{
-   0%   {transform: rotateY(0deg) scale(0.5)   }
-   20%  {transform: rotateY(180deg) scale(0.5)  }
-   40%  {transform: rotateY(180deg) scale(1.0) }
-   80%  {transform: rotateY(180deg) scale(1.0) }
-   100% {transform: rotateY(180deg) scale(0.5) }
-}
-
-@-o-keyframes flipAndZoomAnim
-{
-   0%   {transform: rotateY(0deg) scale(0.5)   }
-   20%  {transform: rotateY(180deg) scale(0.5)  }
-   40%  {transform: rotateY(180deg) scale(1.0) }
-   80%  {transform: rotateY(180deg) scale(1.0) }
-   100% {transform: rotateY(180deg) scale(0.5) }
-}
-
+   0%   { -webkit-transform: rotateY(0deg) scale(0.5) }
+   20%  { -webkit-transform: rotateY(180deg) scale(0.5) }
+   40%  { -webkit-transform: rotateY(180deg) scale(1.0) }
+   80%  { -webkit-transform: rotateY(180deg) scale(1.0) }
+   100% { -webkit-transform: rotateY(180deg) scale(0.5) }
+   
 @keyframes flipAndZoomAnim
 {
-   0%   {transform: rotateY(0deg) scale(0.5)   }
-   20%  {transform: rotateY(180deg) scale(0.5) }
-   40%  {transform: rotateY(180deg) scale(1.0) }
-   80%  {transform: rotateY(180deg) scale(1.0) }
-   100% {transform: rotateY(180deg) scale(0.5) }
+   0%   { transform: rotateY(0deg) scale(0.5) }
+   20%  { transform: rotateY(180deg) scale(0.5) }
+   40%  { transform: rotateY(180deg) scale(1.0) }
+   80%  { transform: rotateY(180deg) scale(1.0) }
+   100% { transform: rotateY(180deg) scale(0.5) }
 }
-
-
 
 .flipAndZoom {
     z-index: 5;
@@ -126,7 +92,7 @@ http://animateyourhtml5.appspot.com/pres/#5
 
 #voittoBanneri {
     top: -500px;
-    z-index:10000;
+    z-index: 10000;
     -webkit-transition: 1s;
     -moz-transition: 1s;
     -o-transition: 1s;
@@ -148,7 +114,8 @@ body article#game {
 
 #board {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%; 
+    left: 50%;
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -185,10 +152,11 @@ body article#game {
 
 .card img {
     position: absolute;
-    top: 50%; left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     width: 110px;
 }
@@ -338,7 +306,7 @@ figure {
 .zebra tfoot td:only-child{
     -moz-border-radius: 0 0 6px 6px;
     -webkit-border-radius: 0 0 6px 6px;
-    border-radius: 0 0 6p 6px;
+    border-radius: 0 0 6px 6px;
 }
 
 
