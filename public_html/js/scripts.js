@@ -12,24 +12,10 @@ $(document).ready(function () {
     var cardsOnTable = 20;
     var timeoutFunc = null;
     var fadeFlippedCardOutFunc = null;
-    var tries = 0;
-    var highScoreDisplayAmount = 10;
     var flipRevertDelay = 2500;
     var matchAudio = "mp3/match.wav";
     var incorrectMatchAudio = "mp3/missmatch.wav";
     var soundEnabled = true;
-    
-    var hasStorage = (function () {
-        try {
-            localStorage["test"] = "test";
-            localStorage.removeItem("test");
-            return true;
-        } catch (exception) {
-            return false;
-        }
-    }());
-
-    displayHighScores(highScoreDisplayAmount, hasStorage);
     
     $('#soundSettings').click(function () {
        disableButton($(this), 100);
@@ -49,50 +35,13 @@ $(document).ready(function () {
     };
     
     $('#startGameButton1').click(function () {
-        console.log("new game pressed");
         disableButton($(this), 5000);
         initGame();
-    });
-
-    $('#startGameButton2').click(function () {
-        disableButton($(this), 5000);
-        initGame();
-    });
-
-    $('#saveScoreButton').click(function () {
-        if ($("#playerName").val().length < 3) {
-            alert("Nimi on liian lyhyt.");
-            return;
-        }
-        if ($("#playerName").val().length > 12) {
-            alert("Nimi on liian pitkä.");
-            return;
-        }
-        if ($("#tries").text() < cardsOnTable) {
-            //alert ("cheater!");
-            //return;
-        }
-        if (hasStorage) {
-            var scores = localStorage["scores"];
-            if (scores != null) {
-                var scoreObj = JSON.parse(scores);
-                var newScore = {"name": $("#playerName").val(), "score": $("#tries").text()};
-                scoreObj.push(newScore);
-                scoreObj = sortScores(scoreObj);
-                localStorage["scores"] = JSON.stringify(scoreObj);
-            } else {
-                var scoreText = "[{\"name\": \"" + $("#playerName").val() + "\" , \"score\":" + $("#tries").text() + "}]";
-                localStorage["scores"] = scoreText;
-            }
-        }
-        $("#voittoBanneri").removeClass("moveDown");
-        displayHighScores(highScoreDisplayAmount, hasStorage);
     });
 
     function initGame() {
+        $('#menu').hide();
         lastFlippedCard = null;
-        tries = 0;
-        $("#tries").text(tries);
         $('#board').empty();
         clearTimeout(timeoutFunc);
         shuffle(cardFileNames);
@@ -105,10 +54,8 @@ $(document).ready(function () {
 
     function disableButton(btn, time) {
         btn.prop('disabled', true);
-        console.log("disabled true");
         setTimeout(function () {
             btn.prop('disabled', false);
-            console.log("disabled false");
         }, time);
     };
 
@@ -119,8 +66,6 @@ $(document).ready(function () {
             if (lastFlippedCard.attr("id") === $(this).attr("id")) {
                 return;
             }
-            tries++;
-            $("#tries").text(tries);
             disableAllFlipping();
             if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
                 $(this).off('click').addClass('solved').removeClass('clickable');
@@ -133,7 +78,7 @@ $(document).ready(function () {
                 }, flipRevertDelay + 500);
                 enableAllFlipping();
                 addGameLogic();
-                console.log(areAllCardsMatched());
+                areAllCardsMatched();
                 playAudio(matchAudio);
             } else {
                 playAudio(incorrectMatchAudio);
@@ -144,7 +89,7 @@ $(document).ready(function () {
                     temp2.removeClass('flipAndZoom').addClass('scaleDown');
                     enableAllFlipping();
                     addGameLogic();
-                }, flipRevertDelay);
+                }, 3500);
             }
             lastFlippedCard = null;
         }
@@ -157,7 +102,10 @@ $(document).ready(function () {
                 return false;
             }
         }
-        $("#voittoBanneri").addClass("moveDown");
+        setTimeout(function () {
+            $('#instructions').text("Onneksi olkoon! Löysit kaikki parit!");
+            $('#menu').show();
+        }, flipRevertDelay);
         return true;
     };
 

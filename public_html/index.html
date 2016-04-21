@@ -19,35 +19,20 @@ and open the template in the editor.
 
     <body>
         <div id="cover"></div>
-        <div id="voittoBanneri" style="position:absolute; left:50%;">
-            <div style="position:relative; left: -50%;">
-                <button style="position:absolute; left:40%; right:40%; top:70%; width:20%;" id="saveScoreButton"> save score </button>
-                <input id="playerName" type="text" placeholder="Type name here" style="position:absolute; left:40%; right:40%; top:65%; width:20%;"/>
-                <img src="jpg/voittoBanneri.png" style="width: 600px; height: 400px;">
-            </div>
-        </div>
         <article id="game">
             <header>
-                <div id="yläPalkki">
-                    <button id="soundSettings">
-                        äänet: <b>päällä</b> / pois
-                    </button>
-                    <div id="tries">
-                        0
-                    </div> 
-                </div> 
+                <button id="soundSettings">
+                    äänet: <b>päällä</b> / pois
+                </button>
             </header>
             <div id="boardContainer">
-                <div id="board" class="noselect">
-
+                <div id="board" class="noselect"></div>
+                <div id="menu">
+                    <div id="instructions"> Harjoita muistiasi ja löydä kaikki tunne parit! </div>
+                    <button id="startGameButton1"> Uusi peli </button>
                 </div>
             </div>
-            <button id="startGameButton1"> Uusi peli </button>
-            <table id="highscores" class="zebra">
-
-            </table>
         </article>
-
         <audio id="audioEngine">
             Selaimesi ei tue ääniä.
         </audio>
