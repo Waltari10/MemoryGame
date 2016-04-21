@@ -101,6 +101,7 @@ http://animateyourhtml5.appspot.com/pres/#5
 }
 
 .flipAndZoom {
+    webkit-transform: translate3d(0,0,0);
     z-index: 5;
     -webkit-transform: rotateY(180deg) scale(0.5);
     -moz-transform: rotateY(180deg) scale(0.5);
