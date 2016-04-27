@@ -163,10 +163,10 @@ http://animateyourhtml5.appspot.com/pres/#5
 }
 
 .scaleDown{
-    -webkit-transform: rotateY(0deg) scale(0.5);
-    -moz-transform: rotateY(0deg) scale(0.5);
-    -o-transform: rotateY(0deg) scale(0.5);
-    transform: rotateY(0deg) scale(0.5);
+    -webkit-transform: rotateY(0deg) scale(0.5) translateZ(0px);
+    -moz-transform: rotateY(0deg) scale(0.5) translateZ(0px);
+    -o-transform: rotateY(0deg) scale(0.5) translateZ(0px);
+    transform: rotateY(0deg) scale(0.5) translateZ(0px);
 }
 
 .card {
