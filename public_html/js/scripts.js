@@ -16,6 +16,11 @@ $(document).ready(function () {
     var matchAudio = "mp3/match.wav";
     var incorrectMatchAudio = "mp3/missmatch.wav";
     var soundEnabled = true;
+    var vibrateSupported = false;
+    
+    
+    // enable vibration support
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
     
     $('#soundSettings').click(function () {
        disableButton($(this), 100);
@@ -68,6 +73,10 @@ $(document).ready(function () {
             }
             disableAllFlipping();
             if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
+                    if (navigator.vibrate) {
+                        // vibrate for one second
+                        navigator.vibrate(1000);
+                    }
                 $(this).off('click').addClass('solved').removeClass('clickable');
                 $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
                 var temp1 = $(this);
