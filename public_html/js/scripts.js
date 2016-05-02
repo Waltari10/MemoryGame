@@ -195,8 +195,8 @@ $(document).ready(function () {
         if (soundEnabled) {
             var audioElement = document.getElementById('audioEngine');
             if (audioElement !== null) {
+                audioElement.type = 'audio/wav';
                 audioElement.src = sAudio;
-                audioElement.type = "audio/mpeg";
                 audioElement.play();
             }
         }
