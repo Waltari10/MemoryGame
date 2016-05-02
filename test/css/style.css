@@ -17,13 +17,17 @@
 .flip {
     transform: rotateY(180deg) scale(1);
     -webkit-transform: rotateY(180deg) scale(1);
-}
-
-.flipAndZoom {
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+    
     animation-name: flipAndZoomAnim;
     -webkit-animation-name: flipAndZoomAnim;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
+
+}
+
+.flipAndZoom {
 }
 
 .card {
