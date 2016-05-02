@@ -1,10 +1,10 @@
 @-webkit-keyframes flipAndZoomAnim
 {
-   0%   { -webkit-transform: rotateY(0deg) scale(0.5) translateZ(-1px) }
-   20%  { -webkit-transform: rotateY(180deg) scale(0.5) translateZ(-1px) }
-   40%  { -webkit-transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
-   80%  { -webkit-transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
-   100% { -webkit-transform: rotateY(180deg) scale(0.5 ) translateZ(0px) }
+   0%   { -webkit-transform: rotateY(0deg) scale(1) translateZ(-1px) }
+   20%  { -webkit-transform: rotateY(180deg) scale(1) translateZ(-1px) }
+   40%  { -webkit-transform: rotateY(180deg) scale(1.5) translateZ(-1px) }
+   80%  { -webkit-transform: rotateY(180deg) scale(1.5) translateZ(-1px) }
+   100% { -webkit-transform: rotateY(180deg) scale(1 ) translateZ(0px) }
 }
 
 @keyframes flipAndZoomAnim
@@ -22,6 +22,7 @@
     animation-name: flipAndZoomAnim;
     -webkit-animation-name: flipAndZoomAnim;
     -webkit-animation-duration: 2s;
+    animation-duration: 2s;
 }
 
 .card {
