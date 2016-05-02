@@ -84,19 +84,17 @@ header {
 
 @-webkit-keyframes flipAndZoomAnim
 {
-   0%   { -webkit-transform: rotateY(0deg) scale(0.5) translateZ(-1px) }
-   20%  { -webkit-transform: rotateY(180deg) scale(0.5) translateZ(-1px) }
-   40%  { -webkit-transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
-   80%  { -webkit-transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
+   0%  { -webkit-transform: rotateY(180deg) scale(0.5) translateZ(-1px) }
+   25%  { -webkit-transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
+   75%  { -webkit-transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
    100% { -webkit-transform: rotateY(180deg) scale(0.5 ) translateZ(0px) }
 }
 
 @keyframes flipAndZoomAnim
 {
-   0%   { transform: rotateY(0deg) scale(0.5) translateZ(-1px) }
-   20%  { transform: rotateY(180deg) scale(0.5) translateZ(-1px) }
-   40%  { transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
-   80%  { transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
+   0%  { transform: rotateY(180deg) scale(0.5) translateZ(-1px) }
+   25%  { transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
+   75%  { transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
    100% { transform: rotateY(180deg) scale(0.5) translateZ(0px) }
 }
 
@@ -109,10 +107,12 @@ header {
     -moz-animation-name: flipAndZoomAnim;
     -o-animation-name: flipAndZoomAnim;
     animation-name: flipAndZoomAnim;
-    -webkit-animation-duration: 2s;
-    -moz-animation-duration: 2s;
-    -o-animation-duration: 2s;
-    animation-duration: 2s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
 }
 
 #boardContainer {

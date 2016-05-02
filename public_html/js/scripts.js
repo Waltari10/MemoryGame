@@ -13,31 +13,6 @@ $(document).ready(function () {
     var timeoutFunc = null;
     var fadeFlippedCardOutFunc = null;
     var flipRevertDelay = 2500;
-    var matchAudio = "mp3/match.wav";
-    var incorrectMatchAudio = "mp3/missmatch.wav";
-    var soundEnabled = true;
-    var vibrateSupported = false;
-    
-    
-    // enable vibration support
-    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-    
-    $('#soundSettings').click(function () {
-       disableButton($(this), 100);
-       toggleSound();
-    });
-    
-    function toggleSound () {
-        if (soundEnabled) {
-            soundEnabled = false;
-            $('#soundSettings').empty();
-            $('#soundSettings').append("äänet: päällä / <b>pois</b>");
-        } else {
-            soundEnabled = true;
-            $('#soundSettings').empty();
-            $('#soundSettings').append("äänet: <b>päällä</b> / pois");
-        }
-    };
     
     $('#startGameButton1').click(function () {
         disableButton($(this), 5000);
@@ -73,10 +48,6 @@ $(document).ready(function () {
             }
             disableAllFlipping();
             if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
-                    if (navigator.vibrate) {
-                        // vibrate for one second
-                        navigator.vibrate(1000);
-                    }
                 $(this).off('click').addClass('solved').removeClass('clickable');
                 $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
                 var temp1 = $(this);
@@ -88,9 +59,7 @@ $(document).ready(function () {
                 enableAllFlipping();
                 addGameLogic();
                 areAllCardsMatched();
-                playAudio(matchAudio);
             } else {
-                playAudio(incorrectMatchAudio);
                 var temp1 = $(this);
                 var temp2 = lastFlippedCard;
                 timeoutFunc = setTimeout(function () {
@@ -188,14 +157,6 @@ $(document).ready(function () {
             x = a[i - 1];
             a[i - 1] = a[j];
             a[j] = x;
-        }
-    };
-
-    function playAudio(sAudio) {
-        if (soundEnabled) {
-            var audio = new Audio(sAudio);
-            audio.type="audio/wav";
-            audio.play();
         }
     };
 });
