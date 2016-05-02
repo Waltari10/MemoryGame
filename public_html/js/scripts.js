@@ -193,12 +193,17 @@ $(document).ready(function () {
 
     function playAudio(sAudio) {
         if (soundEnabled) {
+           /* var sourceElement = document.getElementById('audioSource');
             var audioElement = document.getElementById('audioEngine');
-            if (audioElement !== null) {
-                audioElement.type = 'audio/wav';
-                audioElement.src = sAudio;
+            if (sourceElement !== null) {
+                console.log("asdf");
+                sourceElement.src = sAudio;
                 audioElement.play();
-            }
+            }*/
+            
+            var audio = new Audio(sAudio);
+            audio.type="audio/wav";
+            audio.play();
         }
     };
 });
