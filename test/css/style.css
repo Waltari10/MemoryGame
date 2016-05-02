@@ -28,6 +28,13 @@
 .flipAndZoom {
 }
 
+.scaleDown{
+    -webkit-transform: rotateY(0deg) scale(0.5);
+    -moz-transform: rotateY(0deg) scale(0.5);
+    -o-transform: rotateY(0deg) scale(0.5);
+    transform: rotateY(0deg) scale(0.5);
+}
+
 .card {
     -webkit-appearance: none;
     box-shadow: 0px 0px 38px 15px #7CFC00;
@@ -35,7 +42,7 @@
     -moz-box-shadow: 0px 0px 10px 5px #7CFC00;
     float:left;
     width: 110px;
-    height: 110px;
+    height: 139px;
     cursor: pointer;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
