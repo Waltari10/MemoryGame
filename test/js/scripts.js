@@ -1,16 +1,21 @@
 $(document).ready(function () {
-    "use strict";
-    
+    var flipped = false;
     var card = $("#card0");
-    
     card.click(function() { flipFunction();});
     
     function flipFunction() {
-        card.addClass("flipAndZoom");
-        setTimeout(function () {
+        if (flipped) {
+            flipped = false;
             card.removeClass('flipAndZoom');
-        }, 3500);
-    };
+            card.removeClass('flip');
+        } else {
+            card.addClass("flip");
     
+            setTimeout(function () {
+                card.addClass("flipAndZoom");
+            }, 1000);
+            flipped = true;
+        }
+    };
 });
 
