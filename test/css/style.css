@@ -18,9 +18,11 @@
 
 .flipAndZoom {
     transform: rotateY(180deg) scale(1) translateZ(0px);
+    
     -webkit-transform: rotateY(180deg) scale(1) translateZ(0px);
+    
     animation-name: flipAndZoomAnim;
-    -webkit-transform: flipAndZoomAnim;
+    -webkit-animation-name: flipAndZoomAnim;
     animation-duration: 2s;
     -webkit-animation-duration: 2s;
 }
