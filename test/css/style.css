@@ -1,10 +1,12 @@
-
-.scaleZeroRotate180 {
-    transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    animation-name: flipAndZoomOutAnim;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+@-webkit-keyframes flipAndZoomAnim
+{
+   0%   { transform: rotateY(0deg) scale(1) translateZ(-1px) }
+   20%  { transform: rotateY(180deg) scale(1) translateZ(-1px) }
+   40%  { transform: rotateY(180deg) scale(1.5) translateZ(-1px) }
+   80%  { transform: rotateY(180deg) scale(1.5) translateZ(-1px) }
+   100% { transform: rotateY(180deg) scale(1) translateZ(0px) }
 }
+
 @keyframes flipAndZoomAnim
 {
    0%   { transform: rotateY(0deg) scale(1) translateZ(-1px) }
@@ -16,8 +18,11 @@
 
 .flipAndZoom {
     transform: rotateY(180deg) scale(1) translateZ(0px);
+    -webkit-transform: rotateY(180deg) scale(1) translateZ(0px);
     animation-name: flipAndZoomAnim;
+    -webkit-transform: flipAndZoomAni;
     animation-duration: 2s;
+    -webkit-animation-duration: 2s;
 }
 
 .card {
@@ -28,7 +33,9 @@
     height: 110px;
     cursor: pointer;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: transform 1s;
+    -webkit-transition: transform 1s;
     position: relative;
 }
 
@@ -45,6 +52,7 @@ figure {
 .back {
     background-color: blue;
     transform: rotateY(180deg) scale(1) translateZ(0px);
+    -webkit-transform: rotateY(180deg) scale(1) translateZ(0px);
 }
 
 .front {
@@ -54,7 +62,6 @@ figure {
 article {
     height: 500px;
     width: 500px;
-    
     -webkit-perspective: 1000px;
     perspective: 1000px;
 }
