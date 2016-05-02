@@ -29,6 +29,9 @@ body {
     height: 650px;
     margin-top: -270px;
     margin-left: -340px;
+    -webkit-box-shadow: 0px 0px 10px 5px #7CFC00;
+    -moz-box-shadow: 0px 0px 10px 5px #7CFC00;
+    box-shadow: 0px 0px 10px 5px #7CFC00;
 }
 
 header {
@@ -65,8 +68,8 @@ header {
 }
 
 .solved {
-    -webkit-box-shadow: 0px 0px 38px 30px #7CFC00;
-    -moz-box-shadow: 0px 0px 38px 30px #7CFC00;
+    -webkit-box-shadow: 0px 0px 10px 5px #7CFC00;
+    -moz-box-shadow: 0px 0px 10px 5px #7CFC00;
     box-shadow: 0px 0px 10px 5px #7CFC00;
 }
 
