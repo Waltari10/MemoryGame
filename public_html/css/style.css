@@ -57,10 +57,6 @@ header {
     animation-fill-mode: forwards;
 }
 
-/*
-http://animateyourhtml5.appspot.com/pres/#5
-´*/
-
 .flip {
     -webkit-transform: rotateY(180deg) scale(0.5) translateZ(0px);
     -moz-transform: rotateY(180deg) scale(0.5) translateZ(0px);
@@ -69,8 +65,8 @@ http://animateyourhtml5.appspot.com/pres/#5
 }
 
 .solved {
-    -webkit-box-shadow: 0px 0px 38px 30px rgba(NaN,124,252,1);
-    -moz-box-shadow: 0px 0px 38px 30px rgba(NaN,124,252,1);
+    -webkit-box-shadow: 0px 0px 38px 30px #7CFC00;
+    -moz-box-shadow: 0px 0px 38px 30px #7CFC00;
     box-shadow: 0px 0px 10px 5px #7CFC00;
 }
 
