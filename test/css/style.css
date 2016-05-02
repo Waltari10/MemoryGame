@@ -18,13 +18,10 @@
 
 .flipAndZoom {
     transform: rotateY(180deg) scale(1) translateZ(0px);
-    
     -webkit-transform: rotateY(180deg) scale(1) translateZ(0px);
-    
     animation-name: flipAndZoomAnim;
     -webkit-animation-name: flipAndZoomAnim;
-    animation-duration: 2s;
-    -webkit-animation-duration: -webkit-2s;
+    -webkit-animation-duration: 2s;
 }
 
 .card {
