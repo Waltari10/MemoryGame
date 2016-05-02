@@ -24,7 +24,7 @@
     animation-name: flipAndZoomAnim;
     -webkit-animation-name: flipAndZoomAnim;
     animation-duration: 2s;
-    -webkit-animation-duration: 2s;
+    -webkit-animation-duration: -webkit-2s;
 }
 
 .card {
