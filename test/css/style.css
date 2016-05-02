@@ -35,7 +35,7 @@
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     transition: transform 1s;
-    -webkit-transition: transform 1s;
+    -webkit-transition: -webkit-transform 1s;
     position: relative;
 }
 
