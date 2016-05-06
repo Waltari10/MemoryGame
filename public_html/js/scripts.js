@@ -13,8 +13,8 @@ $(document).ready(function () {
     var timeoutFunc = null;
     var fadeFlippedCardOutFunc = null;
     var flipRevertDelay = 2500;
-    var audioMatch = "mp3/match.wav";
-    var audioMissMatch = "mp3/missmatch.wav";
+    var audioMatch = "mp3/Oikein.wav";
+    var audioMissMatch = "mp3/Vaarin.wav";
     
     $('#startGameButton1').click(function () {
         disableButton($(this), 5000);
