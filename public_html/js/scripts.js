@@ -4,9 +4,6 @@ $(window).on('load', function () {
 
 $(document).ready(function () {
     "use strict";
-    
-    playAudio();
-    
     $('#startGameButton1').prop('disabled', false); //Fixes button being stuck on firefox
     var cards = null;
     var cardFileNames = Array("viha", "inho", "kateus", "ahneus", "ilo", "pelko", "kauhu", "rakkaus", "kipu", "häpeä", "ylpeys", "nautinto", "yksinäisyys", "nälkä", "paranoija", "tyytyväisyys", "hämmennys");
@@ -16,6 +13,8 @@ $(document).ready(function () {
     var timeoutFunc = null;
     var fadeFlippedCardOutFunc = null;
     var flipRevertDelay = 2500;
+    var audioMatch = "mp3/match.wav";
+    var audioMissMatch = "mp3/missmatch.wav";
     
     $('#startGameButton1').click(function () {
         disableButton($(this), 5000);
@@ -23,7 +22,7 @@ $(document).ready(function () {
     });
 
     function initGame() {
-        playAudio();
+        playAudio("init");
         $('#menu').hide();
         lastFlippedCard = null;
         $('#board').empty();
@@ -52,6 +51,7 @@ $(document).ready(function () {
             }
             disableAllFlipping();
             if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
+                playAudio(audioMatch);
                 $(this).off('click').addClass('solved').removeClass('clickable');
                 $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
                 var temp1 = $(this);
@@ -64,6 +64,7 @@ $(document).ready(function () {
                 addGameLogic();
                 areAllCardsMatched();
             } else {
+                playAudio(audioMissMatch);
                 var temp1 = $(this);
                 var temp2 = lastFlippedCard;
                 timeoutFunc = setTimeout(function () {
@@ -164,8 +165,8 @@ $(document).ready(function () {
         }
     };
     
-    function playAudio() {
-        var audio = new Audio('mp3/match.wav');
+    function playAudio(source) {
+        var audio = new Audio(source);
         audio.play();
     }
 });
