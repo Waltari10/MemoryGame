@@ -23,6 +23,7 @@ html {
     height: 100%;
     
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transition: 1s;
     transform-style: preserve-3d;
 }
@@ -30,11 +31,12 @@ html {
 .back {
     background-color: blue;
     transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
 }
 
 .front {
     background-color: red;
-    transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
     z-index: 2;
 }
 
@@ -45,9 +47,9 @@ article {
 }
 
 .invisible {
-    transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
 }
 
 .visible {
-    transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
 }
