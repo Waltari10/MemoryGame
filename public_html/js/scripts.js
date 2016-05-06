@@ -50,7 +50,7 @@ $(document).ready(function () {
                 return;
             }
             disableAllFlipping();
-            if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
+            if (lastFlippedCard.find(".back").find("img").attr("src") === $(this).find(".back").find("img").attr("src")) {
                 playAudio(audioMatch);
                 $(this).off('click').addClass('solved').removeClass('clickable');
                 $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
