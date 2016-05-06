@@ -4,6 +4,9 @@ $(window).on('load', function () {
 
 $(document).ready(function () {
     "use strict";
+    
+    playAudio();
+    
     $('#startGameButton1').prop('disabled', false); //Fixes button being stuck on firefox
     var cards = null;
     var cardFileNames = Array("viha", "inho", "kateus", "ahneus", "ilo", "pelko", "kauhu", "rakkaus", "kipu", "häpeä", "ylpeys", "nautinto", "yksinäisyys", "nälkä", "paranoija", "tyytyväisyys", "hämmennys");
@@ -20,6 +23,7 @@ $(document).ready(function () {
     });
 
     function initGame() {
+        playAudio();
         $('#menu').hide();
         lastFlippedCard = null;
         $('#board').empty();
@@ -159,5 +163,10 @@ $(document).ready(function () {
             a[j] = x;
         }
     };
+    
+    function playAudio() {
+        var audio = new Audio('mp3/match.wav');
+        audio.play();
+    }
 });
 
