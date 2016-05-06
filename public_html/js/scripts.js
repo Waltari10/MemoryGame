@@ -51,7 +51,7 @@ $(document).ready(function () {
             }
             disableAllFlipping();
             if (lastFlippedCard.find("figure.back").find("img").attr("src") === $(this).find("figure.back").find("img").attr("src")) {
-                playAudio(audioMissMatch);
+                playAudio(audioMatch);
                 $(this).off('click').addClass('solved').removeClass('clickable');
                 $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
                 var temp1 = $(this);
