@@ -11,11 +11,9 @@ $(document).ready(function () {
             flipped = false;
             
             figureFront.removeClass('invisible');
-
-            figureBack.removeClass('visible');
-            
-            
+            figureBack.removeClass('visible');  
             card.removeClass('flip');
+            
         } else {  //card not flipped so front is visible and back is invisible
             flipped = true;
             

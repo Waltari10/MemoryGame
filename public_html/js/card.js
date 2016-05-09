@@ -6,6 +6,11 @@ function card(id) {
 
     this.flip = function () {
         $("#" + id).removeClass('scaleDown').addClass("flipAndZoom"); 
+        $("#" + id + " .front").removeClass('visible');
+        $("#" + id + " .front").addClass('invisible');
+        $("#" + id + " .back").addClass('visible');
+        $("#" + id + " .back").removeClass('invisible');
+        
     };
 
     this.initialFlip = function () {
