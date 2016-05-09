@@ -172,7 +172,7 @@ header {
     cursor: pointer;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform 1s;
+    -webkit-transition: 1s;
     transition: 1s;
     position: relative;
     top: -35px;
@@ -212,6 +212,8 @@ header {
     height: 100%; 
    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    transition: 1s;
+    transform-style: preserve-3d;
 }
 
 .back {
@@ -221,7 +223,7 @@ header {
 
 .front {
     z-index: 2;
-    -ms-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg) scale(1) translateZ(0px);
 }
 
 .hidden {
@@ -229,9 +231,9 @@ header {
 }
 
 .invisible {
-    -ms-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg) scale(1) translateZ(0px);
 }
 
 .visible {
-    -ms-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg) scale(1) translateZ(0px);
 }
