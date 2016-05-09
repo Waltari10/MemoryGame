@@ -70,10 +70,10 @@ $(document).ready(function () {
                 timeoutFunc = setTimeout(function () {
                     temp1.removeClass('flipAndZoom').addClass('scaleDown');
                     temp2.removeClass('flipAndZoom').addClass('scaleDown');
-                    temp1.$(".front").removeClass("invisible");
-                    temp1.$(".back").removeClass('visible');
-                    temp2.$(".front").removeClass("invisible");
-                    temp2.$(".back").removeClass('visible');
+                    temp1.find(".front").removeClass("invisible");
+                    temp1.find(".back").removeClass('visible');
+                    temp2.find(".front").removeClass("invisible");
+                    temp2.find(".back").removeClass('visible');
                     enableAllFlipping();
                     addGameLogic();
                 }, 3500);

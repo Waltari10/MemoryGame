@@ -40,7 +40,7 @@ function card(id) {
     }
 
     this.getHTML = function () {
-        return '<div id="' + this.id + '" class="card scaleDown"> <div class="front">' + "<img src='jpg/etu.jpg'>" + '</div> <div class="back">' + "<img src='jpg/taka.jpg'>" + '</div> </div>';
+        return '<div id="' + this.id + '" class="card scaleDown"> <div class="front">' + "<img src='jpg/etu.jpg'>" + '</div> <div class="back">' + "<img src='jpg/" + this.image + "'></div> </div>";
     };
 
     this.setImage = function (name) {
