@@ -13,8 +13,6 @@ $(document).ready(function () {
     var timeoutFunc = null;
     var fadeFlippedCardOutFunc = null;
     var flipRevertDelay = 2500;
-    var audioMatch = "mp3/Oikein.wav";
-    var audioMissMatch = "mp3/Vaarin.wav";
     
     $('#startGameButton1').click(function () {
         disableButton($(this), 5000);
@@ -22,7 +20,6 @@ $(document).ready(function () {
     });
 
     function initGame() {
-        playAudio("init");
         $('#menu').hide();
         lastFlippedCard = null;
         $('#board').empty();
@@ -51,7 +48,6 @@ $(document).ready(function () {
             }
             disableAllFlipping();
             if (lastFlippedCard.find(".back").find("img").attr("src") === $(this).find(".back").find("img").attr("src")) {
-                playAudio(audioMatch);
                 $(this).off('click').addClass('solved').removeClass('clickable');
                 $(lastFlippedCard).off('click').addClass('solved').removeClass('clickable');
                 var temp1 = $(this);
@@ -64,7 +60,6 @@ $(document).ready(function () {
                 addGameLogic();
                 areAllCardsMatched();
             } else {
-                playAudio(audioMissMatch);
                 var temp1 = $(this);
                 var temp2 = lastFlippedCard;
                 timeoutFunc = setTimeout(function () {
@@ -182,10 +177,5 @@ $(document).ready(function () {
             a[j] = x;
         }
     };
-    
-    function playAudio(source) {
-        var audio = new Audio(source);
-        audio.play();
-    }
 });
 
