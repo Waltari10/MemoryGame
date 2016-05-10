@@ -6,10 +6,10 @@ $(document).ready(function () {
     "use strict";
     $('#startGameButton1').prop('disabled', false); //Fixes button being stuck on firefox
     var cards = null;
-    var cardFileNames = Array("viha", "inho", "kateus", "ahneus", "ilo", "pelko", "kauhu", "rakkaus", "kipu", "häpeä", "ylpeys", "nautinto", "yksinäisyys", "nälkä", "paranoija", "tyytyväisyys", "hämmennys");
+    var cardFileNames = Array("hammastynyt", "ihasteleva", "inhoava", "kiukkuinen", "kyllastynyt", "masentunut", "onnellinen", "peloissaan", "perusilme", "pettynyt", "surullinen", "ujo", "vihainen");
     var lastFlippedCard = null;
     var revealTime = 4000;
-    var cardsOnTable = 20;
+    var cardsOnTable = 16;
     var timeoutFunc = null;
     var fadeFlippedCardOutFunc = null;
     var flipRevertDelay = 2500;
@@ -150,6 +150,19 @@ $(document).ready(function () {
         for (counter = 0; counter < cardsOnTable; counter++) {
             var tempCardd = cards[counter];
             $('#board').append(tempCardd.getHTML());
+            
+           
+           if (counter < 4) {$('#' + tempCardd.id).css("top", "-40px");} else
+           if (counter > 3 && counter < 8) {$('#' + tempCardd.id).css("top", "-80px");} else
+           if (counter > 6 && counter < 12) {$('#' + tempCardd.id).css("top", "-120px");} else
+           if (counter > 9) {$('#' + tempCardd.id).css("top", "-160px");}
+   
+           if (counter%4 === 0) {$('#' + tempCardd.id).css("-webkit-box-shadow", "0px 0px 10px 5px #7CFC00");}
+           if (counter%4 === 1) {$('#' + tempCardd.id).css("-webkit-box-shadow", "0px 0px 10px 5px red");}
+           if (counter%4 === 2) {$('#' + tempCardd.id).css("-webkit-box-shadow", "0px 0px 10px 5px blue");}
+           if (counter%4 === 3) {$('#' + tempCardd.id).css("-webkit-box-shadow", "0px 0px 10px 5px brown");}
+          
+            
         }
     };
 
