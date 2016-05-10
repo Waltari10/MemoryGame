@@ -152,15 +152,16 @@ $(document).ready(function () {
             $('#board').append(tempCardd.getHTML());
             
            
-           if (counter < 4) {$('#' + tempCardd.id).css("top", "-40px");} else
-           if (counter > 3 && counter < 8) {$('#' + tempCardd.id).css("top", "-80px");} else
-           if (counter > 6 && counter < 12) {$('#' + tempCardd.id).css("top", "-120px");} else
-           if (counter > 9) {$('#' + tempCardd.id).css("top", "-160px");}
+           if (counter < 4) {$('#' + tempCardd.id).css("top", "-50px");} else
+           if (counter > 3 && counter < 8) {$('#' + tempCardd.id).css("top", "-150px");} else
+           if (counter > 6 && counter < 12) {$('#' + tempCardd.id).css("top", "-250px");} else
+           if (counter > 9) {$('#' + tempCardd.id).css("top", "-350px");}
    
-           if (counter%4 === 0) {$('#' + tempCardd.id).css("-webkit-box-shadow", "0px 0px 10px 5px #7CFC00");}
-           if (counter%4 === 1) {$('#' + tempCardd.id).css("-webkit-box-shadow", "0px 0px 10px 5px red");}
-           if (counter%4 === 2) {$('#' + tempCardd.id).css("-webkit-box-shadow", "0px 0px 10px 5px blue");}
-           if (counter%4 === 3) {$('#' + tempCardd.id).css("-webkit-box-shadow", "0px 0px 10px 5px brown");}
+        /*   if (counter%5 === 0) {$('#' + tempCardd.id).css("left", "50px");}
+           if (counter%5 === 1) {$('#' + tempCardd.id).css("left", "50px");}
+           if (counter%5 === 2) {$('#' + tempCardd.id).css("left")", "0px 0px 10px 5px blue");}
+           if (counter%5 === 3) {$('#' + tempCardd.id).css("left", "-50px");}
+           if (counter%5 === 4) {$('#' + tempCardd.id).css("left", "-100px");}*/
           
             
         }
