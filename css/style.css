@@ -13,14 +13,14 @@ root {
 
 html {
     height: 100%; 
-    min-width: 650px;
+    min-width: 700px;
     overflow: hidden;
 }
 
 body {
     position: relative;
     width: 100%;
-    min-width: 650px;
+    min-width: 700px;
     height: 100%;
 }
 
@@ -72,6 +72,7 @@ header {
     box-shadow: 0px 0px 10px 5px #7CFC00;
     -webkit-box-shadow: 0px 0px 10px 5px #7CFC00;
     -moz-box-shadow: 0px 0px 10px 5px #7CFC00;
+    -o-box-shadow: 0px 0px 10px 5px #7CFC00;
 }
 
 @-webkit-keyframes flipAndZoomOutAnim
@@ -117,6 +118,8 @@ header {
     animation-duration: 2s;
     animation-delay: 0.7s;
     -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    -o-animation-delay: 0.7s;
     animation-timing-function: ease-in-out;
     z-index: 5;
 }
