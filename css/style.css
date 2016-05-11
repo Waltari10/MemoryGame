@@ -12,7 +12,9 @@ root {
 }
 
 html {
-    height: 100%;
+    height: 100%; 
+    background-image: url("bg.png");
+    background-repeat: repeat;
 }
 
 body {
@@ -139,8 +141,10 @@ header {
 #boardContainer {
     padding-top: 10px;
     width: 650px;
-    height: 500px;
+    height: 530px;
     position: relative;
+    background-image: url("board.png");
+    background-repeat: no-repeat;
 }
 
 #board {
@@ -148,7 +152,7 @@ header {
     top: 50%;
     left: 50%;
     width: 650px;
-    height: 510px;
+    height: 540px;
     margin-top: -255px;
     margin-left: -325px;
 }
