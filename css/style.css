@@ -13,8 +13,7 @@ root {
 
 html {
     height: 100%; 
-    background-image: url("bg.png");
-    background-repeat: repeat;
+    overflow: hidden;
 }
 
 body {
@@ -37,7 +36,7 @@ article {
 
 header {
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -157,7 +156,7 @@ header {
     margin-left: -325px;
 }
 
-#startGameButton1 {
+#startGameButton {
     display:block;
     margin: 0 auto;
     width: 200px;

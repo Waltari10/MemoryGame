@@ -4,7 +4,7 @@ $(window).on('load', function () {
 
 $(document).ready(function () {
     "use strict";
-    $('#startGameButton1').prop('disabled', false); //Fixes button being stuck on firefox
+    $('#startGameButton').prop('disabled', false); //Fixes button being stuck on firefox
     var cards = null;
     var cardFileNames = Array("hammastynyt", "ihasteleva", "inhoava", "kiukkuinen", "kyllastynyt", "masentunut", "onnellinen", "peloissaan", "perusilme", "pettynyt", "surullinen", "ujo", "vihainen");
     var lastFlippedCard = null;
@@ -14,7 +14,7 @@ $(document).ready(function () {
     var fadeFlippedCardOutFunc = null;
     var flipRevertDelay = 2500;
     
-    $('#startGameButton1').click(function () {
+    $('#startGameButton').click(function () {
         disableButton($(this), 5000);
         initGame();
     });
