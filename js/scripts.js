@@ -85,7 +85,7 @@ $(document).ready(function () {
             }
         }
         setTimeout(function () {
-            $('#instructions').text("Onneksi olkoon! Löysit kaikki parit!");
+            $('#instructions').text("Onneksi olkoon! Löysit kaikki tunneparit!");
             $('#menu').show();
         }, flipRevertDelay);
         return true;
