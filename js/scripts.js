@@ -17,10 +17,10 @@ var addEvent = function(object, type, callback) {
     height = $(window).height(); 
     width = $(window).width(); 
     
-    if (height < 600) {
-        $("body").css("width", "600px").css("height", "600px");
-    } else if (width < 600) {
-        $("body").css("width", "600px").css("height", "600px");
+    if (height < 300) {
+        $("body").css("width", "300px").css("height", "300px");
+    } else if (width < 300) {
+        $("body").css("width", "300px").css("height", "300px");
     } else if (width > height) {
         $("body").css("width", height).css("height", width);
     } else {
