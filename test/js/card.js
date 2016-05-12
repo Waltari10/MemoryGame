@@ -13,9 +13,9 @@ function card(id) {
             $("#" + id + " .back").addClass('visible');
             $("#" + id + " .back").removeClass('invisible');
 
-            setTimeout(function () {
+            /*setTimeout(function () {
                 $("#" + id).find(".back").find("img").toggleClass('scale', 300);
-            }, 500);
+            }, 500);*/
         }
     };
 
