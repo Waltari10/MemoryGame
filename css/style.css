@@ -2,6 +2,24 @@ root {
     display: block;
 }
 
+.card img {
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-backface-visibility: hidden;
+    transform: translate(-50%, -50%) translateZ(0px);
+    -webkit-transform: translate(-50%, -50%) translateZ(0px);
+}
+
+.back img {
+    -ms-transform: translate(-50%, -50%) translateZ(0px) scaleX(-1);
+}
+
+img.scale {
+    height: 115%;
+}
+
 #cover {
     position: fixed; 
     height: 100%; 
@@ -11,42 +29,40 @@ root {
     z-index:9999;
 }
 
+body {
+    margin: auto;
+
+}
+
+article {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    background: blue;
+}
+
+#boardContainer {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-image: url("board.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 html {
-    height: 100%; 
-    min-width: 700px;
     overflow: hidden;
 }
 
 body {
     position: relative;
-    width: 100%;
-    min-width: 700px;
-    height: 100%;
-}
-
-article {
-    -webkit-perspective: 1000;
-    perspective: 1000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 650px;
-    height: 650px;
-    margin-top: -270px;
-    margin-left: -340px;
-}
-
-header {
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-right: 15px;
 }
 
 .scaleZeroRotate180 {
-    -webkit-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    -moz-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    -o-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    transform: rotateY(180deg) scale(0.5) translateZ(0px);
+    -webkit-transform: rotateY(180deg) translateZ(0px);
+    -moz-transform: rotateY(180deg) translateZ(0px);
+    -o-transform: rotateY(180deg)  translateZ(0px);
+    transform: rotateY(180deg) translateZ(0px);
     -webkit-animation-name: flipAndZoomOutAnim;
     -moz-animation-name: flipAndZoomOutAnim;
     -o-animation_name: flipAndZoomOutAnim;
@@ -62,10 +78,11 @@ header {
 }
 
 .flip {
-    -webkit-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    -moz-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    -o-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    transform: rotateY(180deg) scale(0.5) translateZ(0px);
+    transform: rotateY(180deg) translateZ(-1px);
+    -o-transform: rotateY(180deg)  translateZ(-1px);
+    -moz-transform: rotateY(180deg) translateZ(-1px);
+    -webkit-transform: rotateY(180deg) translateZ(-1px);
+    z-index: 5;
 }
 
 .solved {
@@ -77,89 +94,41 @@ header {
 
 @-webkit-keyframes flipAndZoomOutAnim
 {
-   0% { -webkit-transform: rotateY(180deg) scale(0.5); opacity: 1; }
-   100%   { -webkit-transform: rotateY(180deg) scale(0.25); opacity: 0; }
+   0% { -webkit-transform: rotateY(180deg) scale(1.0); opacity: 1; }
+   100%   { -webkit-transform: rotateY(180deg) scale(0.5); opacity: 0; }
 }
 
 @keyframes flipAndZoomOutAnim
 {
-   0% { transform: rotateY(180deg) scale(0.5); opacity: 1; }
-   100%   { transform: rotateY(180deg) scale(0.25); opacity: 0; }
+   0% { transform: rotateY(180deg) scale(1.0); opacity: 1; }
+   100%   { transform: rotateY(180deg) scale(0.5); opacity: 0; }
 }
 
-@-webkit-keyframes flipAndZoomAnim
-{
-   0%  { -webkit-transform: rotateY(180deg) scale(0.5) translateZ(-0px) }
-   5%  { -webkit-transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
-   90%  { -webkit-transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
-   100% { -webkit-transform: rotateY(180deg) scale(0.5) translateZ(0) }
-}
-
-@keyframes flipAndZoomAnim
-{
-   0%  { transform: rotateY(180deg) scale(0.5) translateZ(-0px) }
-   5%  { transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
-   90%  { transform: rotateY(180deg) scale(1.0) translateZ(-1px) }
-   100% { transform: rotateY(180deg) scale(0.5) translateZ(0px) }
-}
-
-.flipAndZoom {
-    -webkit-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    -moz-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    -o-transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    transform: rotateY(180deg) scale(0.5) translateZ(0px);
-    -webkit-animation-name: flipAndZoomAnim;
-    -moz-animation-name: flipAndZoomAnim;
-    -o-animation-name: flipAndZoomAnim;
-    animation-name: flipAndZoomAnim;
-    -webkit-animation-duration: 2s;
-    -moz-animation-duration: 2s;
-    -o-animation-duration: 2s;
-    animation-duration: 2s;
-    animation-delay: 0.7s;
-    -webkit-animation-delay: 0.7s;
-    -moz-animation-delay: 0.7s;
-    -o-animation-delay: 0.7s;
-    animation-timing-function: ease-in-out;
-    z-index: 5;
+#board {
+    transform: rotateY(0deg) translateZ(5x);
+    -o-transform: rotateY(0deg)  translateZ(5px);
+    -moz-transform: rotateY(0deg) translateZ(5px);
+    -webkit-transform: rotateY(0deg) translateZ(5px);
+    padding-top: 2%;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
 }
 
 .card {
-    float:left;
-    width: 150px;
-    height: 229px;
-    margin-left: 10px;
+    float: left;
+    width: 25%;
+    height: 24%;
     cursor: pointer;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     position: relative;
     transition: 0.7s;
     -webkit-transition: 0.7s;
 }
 
-.card img {
-    width: 150px;
-}
-
-#boardContainer {
-    padding-top: 10px;
-    width: 650px;
-    height: 530px;
-    position: relative;
-}
-
-#board {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 650px;
-    height: 540px;
-    margin-top: -255px;
-    margin-left: -325px;
-}
-
 #startGameButton {
-    display:block;
+    display: block;
     margin: 0 auto;
     width: 200px;
     height: 50px;
@@ -177,20 +146,13 @@ header {
 
 #instructions {
     padding-bottom: 50px;
-    display:block;
+    display: block;
     margin: 0 auto;
     text-align: center;
     font-size: 35px;
     font-weight: bold;
     font-family: Candara,Calibri,Segoe,"Segoe UI",Optima,Arial,sans-serif;
 
-}
-
-.scaleDown{
-    -webkit-transform: rotateY(0deg) scale(0.5) translateZ(0px);
-    -moz-transform: rotateY(0deg) scale(0.5) translateZ(0px);
-    -o-transform: rotateY(0deg) scale(0.5) translateZ(0px);
-    transform: rotateY(0deg) scale(0.5) translateZ(0px);
 }
 
 
@@ -221,22 +183,22 @@ header {
     position: absolute;
     width: 100%;
     height: 100%; 
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transition: 1s;
     -webkit-transition: 1s;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 }
 
 .back {
-    -webkit-transform: rotateY(-180deg) scale(1) translateZ(1px);
-    transform: rotateY(-180deg) scale(1) translateZ(1px);
+    -webkit-transform: rotateY(-180deg) translateZ(1px);
+    transform: rotateY(-180deg) translateZ(1px);
 }
 
 .front {
     z-index: 2;
-    -ms-transform: rotateY(0deg) scale(1) translateZ(0px);
+    -ms-transform: rotateY(0deg) translateZ(0px);
 }
 
 .hidden {
@@ -244,9 +206,9 @@ header {
 }
 
 .invisible {
-    -ms-transform: rotateY(180deg) scale(1) translateZ(0px);
+    -ms-transform: rotateY(180deg) translateZ(0px);
 }
 
 .visible {
-    -ms-transform: rotateY(0deg) scale(1) translateZ(0px);
+    -ms-transform: rotateY(0deg) translateZ(0px);
 }
