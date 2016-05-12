@@ -33,9 +33,7 @@ var addEvent = function(object, type, callback) {
 
 $(document).ready(function () {
     "use strict";
-
     addEvent(window, "resize", addEvent);
-
     $('#startGameButton').prop('disabled', false); //Fixes button being stuck on firefox
     var cards = null;
     var cardFileNames = Array("hammastynyt", "ihasteleva", "inhoava", "kiukkuinen", "kyllastynyt", "masentunut", "onnellinen", "peloissaan", "perusilme", "pettynyt", "surullinen", "ujo", "vihainen");

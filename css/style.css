@@ -38,15 +38,11 @@ article {
     width: 100%;
     padding-bottom: 100%;
     position: relative;
-    background: blue;
 }
 
 #boardContainer {
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;
-    background-image: url("board.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
 }
 
 html {

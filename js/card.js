@@ -6,13 +6,11 @@ function card(id) {
 
     this.flip = function () {
         if (!$("#" + id).hasClass("flip")) {
-
             $("#" + id).addClass("flip"); 
             $("#" + id + " .front").removeClass('visible');
             $("#" + id + " .front").addClass('invisible');
             $("#" + id + " .back").addClass('visible');
             $("#" + id + " .back").removeClass('invisible');
-
             setTimeout(function () {
                 $("#" + id).find(".back").find("img").toggleClass('scale', 300);
             }, 500);
