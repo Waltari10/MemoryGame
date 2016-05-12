@@ -146,8 +146,6 @@ header {
     width: 650px;
     height: 530px;
     position: relative;
-    background-image: url("board.png");
-    background-repeat: no-repeat;
 }
 
 #board {
