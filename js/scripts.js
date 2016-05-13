@@ -44,6 +44,8 @@ $(document).ready(function () {
     var fadeFlippedCardOutFunc = null;
     var flipRevertDelay = 2500;
     var sound = false;
+    var audio = new Audio('aani/complete.wav');
+    audio.load(); // Needed on safari / idevice
     
     $('#speakerIcon').click(function() {
         if (!sound) {
@@ -217,7 +219,6 @@ $(document).ready(function () {
 
     function playSound() {
         if (sound) {
-            var audio = new Audio('aani/complete.wav');
             audio.play();
         }
     }
