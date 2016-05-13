@@ -219,6 +219,7 @@ $(document).ready(function () {
 
     function playSound() {
         if (sound) {
+            audio.load(); // Needed on safari / idevice
             audio.play();
         }
     }
