@@ -2,6 +2,20 @@ root {
     display: block;
 }
 
+#speakerIcon {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 50;
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+}
+
+.opacity30 {
+    filter: opacity(30%);
+    -webkit-filter: opacity(30%); /* Chrome, Safari, Opera */
+}
+
 .card img {
     height: 90%;
     position: absolute;

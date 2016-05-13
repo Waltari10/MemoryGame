@@ -43,7 +43,19 @@ $(document).ready(function () {
     var timeoutFunc = null;
     var fadeFlippedCardOutFunc = null;
     var flipRevertDelay = 2500;
+    var sound = false;
     
+    $('#speakerIcon').click(function() {
+        if (!sound) {
+            $('#speakerIcon').toggleClass('opacity30');
+            sound = true;
+            playSound();
+        } else {
+            $('#speakerIcon').toggleClass('opacity30');
+            sound = false;
+        }
+    });
+
     $('#startGameButton').click(function () {
         disableButton($(this), 5000);
         initGame();
@@ -78,6 +90,7 @@ $(document).ready(function () {
             }
             disableAllFlipping();
             if (lastFlippedCard.find(".back").find("img").attr("src") === $(this).find(".back").find("img").attr("src")) {
+                playSound();
                 $(this).find("img").addClass('solved');
                 $(lastFlippedCard).find("img").addClass('solved');
                 $(this).off('click').removeClass('clickable');
@@ -201,5 +214,12 @@ $(document).ready(function () {
             a[j] = x;
         }
     };
+
+    function playSound() {
+        if (sound) {
+            var audio = new Audio('aani/complete.wav');
+            audio.play();
+        }
+    }
 });
 
