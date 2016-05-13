@@ -12,8 +12,8 @@ root {
 }
 
 .opacity30 {
-    filter: opacity(30%);
-    -webkit-filter: opacity(30%); /* Chrome, Safari, Opera */
+    filter: opacity(80%);
+    -webkit-filter: opacity(80%); /* Chrome, Safari, Opera */
 }
 
 .card img {
@@ -45,8 +45,10 @@ img.scale {
 
 body {
     margin: auto;
-
+    background-image: url("wood-texture.jpg");
 }
+
+
 
 article {
     width: 100%;
